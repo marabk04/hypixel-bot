@@ -1,0 +1,384 @@
+import discord
+from discord.ext import commands
+import discord.utils 
+import asyncio
+from discord import app_commands
+import requests
+from minecraft_utils import minecraftSKin
+import io
+import requests
+from datetime import datetime
+import re
+import json
+from discord.ext import tasks
+
+from database import election_channel
+
+candidate_emojis = {
+    "Aatrox": "<:aatrox:1158633410378596382>",
+    "Cole": "<:cole:1158633411775303722>",
+    "Diana": "<:diana:1158633412547063858>",
+    "Foxy": "<:foxy:1158633413419474944>",
+    "Jerry": "<:jerry:1158633414149288036>",
+    "Marina": "<:marina:1158633415529205770>",
+    "Paul": "<:paul:1158633409573306419>",
+    "Technoblade": "<:technoblade:1158635069716561970>",
+    "Dante": "<:dante:1158635070215684148>",
+    "Diaz": "<:diaz:1158635062925996072>",
+    "Barry": "<:barry:1158635064171704462>",
+    "Finnegan": "<:finnegan:1158635066369511495>",
+    "Derpy": "<:derpy:1158635067225161758>",
+    "Scorpius": "<:scorpius3:1158635068433121300>"
+}
+
+with open('mayor_skins.json', 'r') as file:
+    candidate_skins = json.load(file)
+
+    
+def getInfo(call):
+    response = requests.get(call)
+    return response.json()
+
+def UsernameToID(username):
+    mojang_url = f"https://api.mojang.com/users/profiles/minecraft/{username}"
+    uuid = getInfo(mojang_url)
+    return uuid['id']
+
+def remove_minecraft_formatting(text):
+    return re.sub(r'§[0-9a-fklmnor]', '', text)
+
+def output_skin(candidate):
+    if candidate in candidate_skins:
+        skin_filename = candidate_skins[candidate]
+        return skin_filename
+
+
+url = "https://api.hypixel.net/resources/skyblock/election"
+data = getInfo(url)
+
+def get_current():
+    current_mayor_data = []
+    mayor = data['mayor']
+    perks = []
+    mayor_name = mayor['name']
+    mayor_key = mayor['key']
+
+    for perk in mayor['perks']:
+        perk_name = perk['name']
+        perk_description = perk['description']
+        perks.append((perk_name, perk_description))
+
+    mayor_info = {
+        'name': mayor_name,
+        'key': mayor_key,
+        'perks': perks
+    }
+    current_mayor_data.append(mayor_info)
+
+    return current_mayor_data
+
+def get_data():
+    candidate_data = []
+    total_votes = sum(candidate['votes'] for candidate in data["current"]["candidates"])
+
+    election_year = data["current"]["year"]
+
+    for candidate in data["current"]["candidates"]:
+        perks = []
+        candidate_name = candidate['name']
+        candidate_votes = candidate['votes']
+        candidate_key = candidate['key']
+        percentage_votes = (candidate_votes / total_votes) * 100
+
+        for perk in candidate['perks']:
+            perk_name = perk['name']
+            perk_description = perk['description']
+            perks.append((perk_name, perk_description))
+
+        candidate_info = {'name': candidate_name, 'votes': candidate_votes, 'percentage_of_total_votes': percentage_votes, 'perks': perks, 'key': candidate_key}
+        candidate_data.append(candidate_info)
+
+    return candidate_data, election_year, total_votes
+
+def election_ended_data():
+    candidate_data = []
+    mayor_winner_data = []
+    election_year = data["election"]["year"]
+
+    for mayor in data["mayor"]["name"]:
+        mayor_perks = []
+        mayor_name = mayor['name']
+        mayor_key = candidate['key']
+        for perk in candidate['perks']:
+            perk_name = perk['name']
+            perk_description = perk['description']
+            mayor_perks.append((perk_name, perk_description))
+
+        mayor_winner = {'name': mayor_name, 'perks': mayor_perks, 'key': mayor_key}
+        mayor_winner_data.append(mayor_winner)
+
+
+
+    for candidate in data["election"]["candidates"]:
+        perks = []
+        candidate_name = candidate['name']
+        candidate_key = candidate['key']
+
+
+        for perk in candidate['perks']:
+            perk_name = perk['name']
+            perk_description = perk['description']
+            perks.append((perk_name, perk_description))
+
+        candidate_info = {'name': candidate_name, 'perks': perks, 'key': candidate_key}
+        candidate_data.append(candidate_info)
+
+    return candidate_data, mayor_winner_data, election_year
+
+def display_embed(candidate_data, election_year, total_votes):
+
+    max_votes_candidate = max(candidate_data, key=lambda candidate: candidate['votes'])
+    max_votes_percentage = (max_votes_candidate['votes'] / total_votes) * 100
+
+
+    embed = discord.Embed(title = f"Next Predicted Mayor: {max_votes_candidate['name']}", description = f"Leading with **``{max_votes_percentage:.2f}%``** of votes \n ``/election`` for more information about the election.", colour=0x00b0f4)
+    embed.set_thumbnail(url=output_skin(max_votes_candidate["name"]))
+    embed.set_footer(text=f"Election Year {election_year} • Last Updated at {datetime.now().strftime('%I:%M %p')} ")
+
+
+    embed.add_field(name = f"{max_votes_candidate['name']}'s Perks", value = "")
+    for perk_name, perk_description in max_votes_candidate['perks']:
+        embed.add_field(name=f"• {remove_minecraft_formatting(perk_name)}", value=remove_minecraft_formatting(perk_description), inline=False)
+
+
+    embed.add_field(name = f"Other Candidates", value = "")
+    for candidate in candidate_data:
+        emoji = candidate_emojis.get(candidate['name'], '')
+        if candidate['name'] != max_votes_candidate['name']:
+            embed.add_field(name = f"{emoji} {candidate['name']}", value = f"**``{candidate['percentage_of_total_votes']:.2f}%``**", inline = False)
+
+    return embed
+
+
+def election_end_display_embed(candidate_data, mayor_winner_data, election_year):
+
+
+    embed = discord.Embed(title = f"41412: {mayor_winner_data['name']}", description = "", colour=0x00b0f4)
+    embed.set_thumbnail(url=output_skin(mayor_winner_data["name"]))
+    embed.set_footer(text=f"Election Year {election_year} • Last Updated at {datetime.now().strftime('%I:%M %p')} ")
+
+
+    embed.add_field(name = f"{mayor_winner_data['name']}'s Perks", value = "")
+    for perk_name, perk_description in mayor_winner_data['perks']:
+        embed.add_field(name=f"• {remove_minecraft_formatting(perk_name)}", value=remove_minecraft_formatting(perk_description), inline=False)
+
+
+    embed.add_field(name = f"Other Candidates", value = "")
+    for candidate in candidate_data:
+        emoji = candidate_emojis.get(candidate['name'], '')
+        if candidate['name'] != mayor_winner_data['name']:
+            embed.add_field(name = f"{emoji} {candidate['name']}", value = f"**``{candidate['percentage_of_total_votes']:.2f}%``**", inline = False)
+
+    return embed
+
+
+def election_info_embed(custom_id, candidate_data, election_year):
+    embed = discord.Embed(title = "Mayor Candidate", colour=0x00b0f4, timestamp=datetime.now())
+    embed.set_thumbnail(url=output_skin(custom_id))
+    embed.set_footer(text = f"Election Year {election_year}")
+    for candidate in candidate_data:
+        if candidate['name'] == custom_id:
+            embed.add_field(name = "Mayor Name", value = custom_id, inline =  True)
+            embed.add_field(name="\u200b", value="\u200b", inline=True) 
+            embed.add_field(name = "Votes", value = candidate['votes'], inline =  True)
+
+            for perk_name, perk_description in candidate['perks']:
+                embed.add_field(name = remove_minecraft_formatting(perk_name), value = remove_minecraft_formatting(perk_description), inline = True)
+    return embed
+            
+
+
+
+
+class candidate_menu(discord.ui.View):
+    def __init__(self, candidate_data, current_mayor_data, election_year):
+        super().__init__(timeout=15)
+        self.candidate_data = candidate_data
+        self.current_mayor_data = current_mayor_data
+        self.election_year = election_year
+        
+        
+    async def on_timeout(self):
+        for item in self.children:
+            item.disabled = True
+        await self.message.edit(view=self)
+
+    async def setup_buttons(self):
+        for candidate in self.candidate_data:
+            candidate_name = candidate['name']
+            votes_percentage = candidate['percentage_of_total_votes']
+            candidate_label = f"{candidate_name} {votes_percentage:.2f}%"
+
+            button = discord.ui.Button(style=discord.ButtonStyle.green, label=candidate_label, custom_id=f"{candidate_name}")
+            button.callback = self.button_callback
+            self.add_item(button)
+
+    
+
+        current_mayor = self.current_mayor_data[0]
+        mayor_button = discord.ui.Button(style=discord.ButtonStyle.blurple, label=f"{current_mayor['name']}", custom_id="button", disabled = True)
+        mayor_button.callback = self.mayor_button_callback
+        self.add_item(mayor_button)
+
+    async def button_callback(self, interaction: discord.Interaction):
+        custom_id = interaction.data['custom_id']
+        embed = election_info_embed(custom_id, self.candidate_data, self.election_year)
+        await interaction.response.defer()
+        for button in self.children:
+            button.disabled = False
+
+        for button in self.children:
+            if button.custom_id == custom_id:
+                button.disabled = True
+                break
+        await interaction.edit_original_response(embed=embed, view=self)
+
+    async def mayor_button_callback(self, interaction: discord.Interaction):
+        current_mayor = self.current_mayor_data[0]
+        initial_menu = candidate_menu(self.candidate_data, self.current_mayor_data, self.election_year)
+        
+
+        embed = discord.Embed(title="Current Mayor", description="", color=0x00b0f4, timestamp=datetime.now())
+        embed.set_thumbnail(url=output_skin(current_mayor['name']))
+
+        embed.add_field(name="Mayor Name", value=current_mayor['name'], inline=True)
+        embed.add_field(name="Mayor Key", value=current_mayor['key'], inline=True)
+        embed.add_field(name="\u200b", value="\u200b", inline=True)
+
+        for perk_name, perk_description in current_mayor['perks']:
+            embed.add_field(name=remove_minecraft_formatting(perk_name), value=remove_minecraft_formatting(perk_description), inline=True)
+
+
+        await interaction.response.defer()
+        await initial_menu.setup_buttons()
+        
+        await interaction.edit_original_response(embed=embed, view=initial_menu)
+
+class auto_update_election_command(commands.GroupCog, name="election"):
+    def __init__(self, bot: commands.Bot):
+        super().__init__() 
+        self.bot = bot
+        self.messages = {}
+        self.update_channel.start()
+    
+            
+    @tasks.loop(hours= 1)
+    async def update_channel(self):
+        await self.bot.wait_until_ready()
+        try:
+            await self.send_or_update_election()
+        except Exception as e:
+            print(f"Failed to update election info: {e}")
+
+
+
+    def get_channel(self, channel_id):
+        return self.bot.get_channel(channel_id)
+
+    async def send_or_update_election(self):
+        candidate_data, election_year, total_votes = get_data()
+        embed = display_embed(candidate_data, election_year, total_votes)
+        """        candidate_data, mayor_winner_data, election_year = election_ended_data()
+        embed = election_end_display_embed(candidate_data, mayor_winner_data, election_year)"""
+
+        channels = election_channel.find()
+
+
+        for channel_data in channels:
+            channel_id = channel_data['channel']
+            channel = self.bot.get_channel(channel_id)
+            if channel:
+                previous_message_id = channel_data.get('message_id')
+                if previous_message_id:
+                    previous_message = await channel.fetch_message(previous_message_id)
+                    await previous_message.edit(embed=embed)
+                else:
+                    sent_message = await channel.send(embed=embed)
+                    election_channel.update_one({'channel': channel_id}, {'$set': {'message_id': sent_message.id}})
+            
+
+    @app_commands.checks.has_permissions(manage_channels = True )
+    @app_commands.command(name="add", description="Add a channel for election updates")
+    async def add_election_channel(self, interaction: discord.Interaction, channel: discord.TextChannel):
+        if(find:= election_channel.find_one({"_id": str(interaction.guild.id)})):
+            return await interaction.response.send_message(f"Auto Election Updates module already enabled at #{self.get_channel(find['channel'])}")
+    
+        election_channel.insert_one({"_id": str(interaction.guild.id), "channel": channel.id})
+        await self.send_or_update_election()
+        await interaction.response.send_message(content=f"Added election channel <#{channel.id}>", ephemeral=True)
+
+    @app_commands.checks.has_permissions(manage_channels = True )
+    @app_commands.command(name="remove", description="Remove a channel from election updates")
+    async def remove_election_channel(self, interaction: discord.Interaction, channel: discord.TextChannel):
+        if not (find:= election_channel.find_one({"_id": str(interaction.guild_id)})):
+            return await interaction.response.send_message(f"Auto Election Updates module is not enabled ", ephemeral=True)
+        
+        election_channel.delete_one({ "_id": str(interaction.guild_id)})
+        await interaction.response.send_message(f"Auto Election Updates module disabled", ephemeral=True)
+
+    @app_commands.checks.has_permissions(manage_channels = True )
+    @app_commands.command(name="update", description="Update a channel from election updates")
+    async def dadlal(self, interaction: discord.Interaction, channel: discord.TextChannel):
+        if not (find:= election_channel.find_one({"_id": str(interaction.guild_id)})):
+            return await interaction.response.send_message(f"Auto Election Updates module is not enabled ")
+        
+        election_channel.update_one({"_id": str(interaction.guild_id)}, {"$set": {"channel": channel.id}})
+        await interaction.response.send_message(f"Auto Election Updates module updated to {channel}")
+
+
+
+
+
+
+
+    @app_commands.command(name ="info", description = "The current election")
+    async def election_command(self, interaction: discord.Interaction):
+        candidate_data, election_year, total_votes = get_data()
+        current_mayor_data = get_current()
+        current_mayor = current_mayor_data[0] 
+
+        embed = discord.Embed(title="Current Mayor",  color=0x00b0f4, timestamp=datetime.now())
+        embed.set_thumbnail(url=output_skin(current_mayor['name']))
+
+        embed.add_field(name="Mayor Name", value=current_mayor['name'])
+
+
+        for perk_name, perk_description in current_mayor['perks']:
+            embed.add_field(name=remove_minecraft_formatting(perk_name), value=remove_minecraft_formatting(perk_description), inline=True)
+
+        view = candidate_menu(candidate_data, current_mayor_data, election_year)
+        await view.setup_buttons()
+        await interaction.response.send_message(embed=embed, view=view, ephemeral=True)
+        view.message = await interaction.original_response()
+
+
+
+    @app_commands.command(name="update", description="Update a channel from election updates")
+    async def election_command(self, interaction: discord.Interaction):
+        await self.send_or_update_election()
+        await interaction.response.send_message(content="Updated!", ephemeral=True)
+
+
+
+
+    def cog_unload(self):
+        self.update_channel.cancel()
+
+    
+
+
+
+
+
+async def setup(bot):
+    await bot.add_cog(auto_update_election_command(bot))

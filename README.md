@@ -1,0 +1,2 @@
+﻿# hypixel-bot
+

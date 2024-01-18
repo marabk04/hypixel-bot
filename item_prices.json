@@ -1,0 +1,2270 @@
+{
+  "ROGUE_SWORD": {
+    "buy": "N/A"
+  },
+  "FANCY_SWORD": {
+    "buy": "1,000"
+  },
+  "SPIDER_SWORD": {
+    "buy": "300"
+  },
+  "UNDEAD_SWORD": {
+    "buy": "132"
+  },
+  "ARTISANAL_SHORTBOW": {
+    "buy": "50,999"
+  },
+  "END_SWORD": {
+    "buy": "110,000"
+  },
+  "CLEAVER": {
+    "buy": "50,000"
+  },
+  "FLAMING_SWORD": {
+    "buy": "5,999,000"
+  },
+  "WITHER_BOW": {
+    "buy": "99,900"
+  },
+  "DECENT_BOW": {
+    "buy": "143,999"
+  },
+  "HUNTER_KNIFE": {
+    "buy": "N/A"
+  },
+  "SAVANA_BOW": {
+    "buy": "198,000"
+  },
+  "PRISMARINE_BOW": {
+    "buy": "400,000"
+  },
+  "PRISMARINE_BLADE": {
+    "buy": "79,500"
+  },
+  "ENDER_BOW": {
+    "buy": "75,000"
+  },
+  "SILVER_FANG": {
+    "buy": "75,000"
+  },
+  "CRYPT_DREADLORD_SWORD": {
+    "buy": "6,999"
+  },
+  "ZOMBIE_SOLDIER_CUTLASS": {
+    "buy": "10,000"
+  },
+  "MACHINE_GUN_BOW": {
+    "buy": "80,000"
+  },
+  "MERCENARY_AXE": {
+    "buy": "500,000"
+  },
+  "STARLIGHT_WAND": {
+    "buy": "90,000"
+  },
+  "ARACK": {
+    "buy": "28,000"
+  },
+  "TACTICIAN_SWORD": {
+    "buy": "290,000"
+  },
+  "SNIPER_BOW": {
+    "buy": "90,000"
+  },
+  "CRYPT_BOW": {
+    "buy": "5,000"
+  },
+  "FROZEN_SCYTHE": {
+    "buy": "9,500,000"
+  },
+  "GLACIAL_SCYTHE": {
+    "buy": "55,000,000"
+  },
+  "GOLEM_SWORD": {
+    "buy": "575,000"
+  },
+  "RAIDER_AXE": {
+    "buy": "199,000"
+  },
+  "EXPLOSIVE_BOW": {
+    "buy": "1,100,000"
+  },
+  "MAGMA_BOW": {
+    "buy": "9,000,000"
+  },
+  "SLIME_BOW": {
+    "buy": "2,600,000"
+  },
+  "EARTH_SHARD": {
+    "buy": "75,000"
+  },
+  "VOIDWALKER_KATANA": {
+    "buy": "94,000"
+  },
+  "VOIDEDGE_KATANA": {
+    "buy": "845,000"
+  },
+  "VORPAL_KATANA": {
+    "buy": "6,222,222"
+  },
+  "ATOMSPLIT_KATANA": {
+    "buy": "99,000,000"
+  },
+  "SINSEEKER_SCYTHE": {
+    "buy": "6,400,000"
+  },
+  "VOID_SWORD": {
+    "buy": "N/A"
+  },
+  "DRAGON_SHORTBOW": {
+    "buy": "N/A"
+  },
+  "ASPECT_OF_THE_END": {
+    "buy": "275,000"
+  },
+  "ASPECT_OF_THE_VOID": {
+    "buy": "56,016"
+  },
+  "SCORPION_BOW": {
+    "buy": "13,500,000"
+  },
+  "HURRICANE_BOW": {
+    "buy": "667,000"
+  },
+  "END_STONE_BOW": {
+    "buy": "100,000"
+  },
+  "REVENANT_SWORD": {
+    "buy": "800,000"
+  },
+  "REAPER_SWORD": {
+    "buy": "4,899,000"
+  },
+  "AXE_OF_THE_SHREDDED": {
+    "buy": "74,500,000"
+  },
+  "RECLUSE_FANG": {
+    "buy": "500,000"
+  },
+  "CONJURING_SWORD": {
+    "buy": "60,000"
+  },
+  "ZOMBIE_COMMANDER_WHIP": {
+    "buy": "100,000"
+  },
+  "EDIBLE_MACE": {
+    "buy": "2,700,000"
+  },
+  "ZOMBIE_SWORD": {
+    "buy": "584,000"
+  },
+  "ORNATE_ZOMBIE_SWORD": {
+    "buy": "3,199,000"
+  },
+  "FLORID_ZOMBIE_SWORD": {
+    "buy": "1,700,000"
+  },
+  "SCORPION_FOIL": {
+    "buy": "10,000,000"
+  },
+  "END_STONE_SWORD": {
+    "buy": "125,000"
+  },
+  "DEATH_BOW": {
+    "buy": "4,000,000"
+  },
+  "GIANT_CLEAVER": {
+    "buy": "5,950,000"
+  },
+  "SPIDER_QUEENS_STINGER": {
+    "buy": "700,000"
+  },
+  "VENOMS_TOUCH": {
+    "buy": "900,000"
+  },
+  "SHAMAN_SWORD": {
+    "buy": "499,000"
+  },
+  "POOCH_SWORD": {
+    "buy": "5,999,999"
+  },
+  "EMERALD_BLADE": {
+    "buy": "599,000"
+  },
+  "INK_WAND": {
+    "buy": "9,000,000"
+  },
+  "ZOMBIE_KNIGHT_SWORD": {
+    "buy": "50,000"
+  },
+  "FEL_SWORD": {
+    "buy": "225,000"
+  },
+  "SOULS_REBOUND": {
+    "buy": "3,500,000"
+  },
+  "JUJU_SHORTBOW": {
+    "buy": "23,000,000"
+  },
+  "LEAPING_SWORD": {
+    "buy": "3,500,000"
+  },
+  "SILK_EDGE_SWORD": {
+    "buy": "6,999,000"
+  },
+  "BONZO_STAFF": {
+    "buy": "4,800,000"
+  },
+  "SILENT_DEATH": {
+    "buy": "130,000"
+  },
+  "STONE_BLADE": {
+    "buy": "1,200,000"
+  },
+  "RUNAANS_BOW": {
+    "buy": "1,250,000"
+  },
+  "MOSQUITO_BOW": {
+    "buy": "56,900,000"
+  },
+  "SPIRIT_SWORD": {
+    "buy": "3,400,000"
+  },
+  "BAT_WAND": {
+    "buy": "23,000,000"
+  },
+  "ITEM_SPIRIT_BOW": {
+    "buy": "5,900,000"
+  },
+  "BONE_BOOMERANG": {
+    "buy": "19,000,000"
+  },
+  "SWORD_OF_REVELATIONS": {
+    "buy": "21,850,000"
+  },
+  "SOUL_WHIP": {
+    "buy": "11,500,000"
+  },
+  "ASPECT_OF_THE_DRAGON": {
+    "buy": "350,000"
+  },
+  "PIGMAN_SWORD": {
+    "buy": "7,900,000"
+  },
+  "MIDAS_SWORD": {
+    "buy": "30,900,000"
+  },
+  "MIDAS_STAFF": {
+    "buy": "239,000,000"
+  },
+  "YETI_SWORD": {
+    "buy": "61,000,000"
+  },
+  "LAST_BREATH": {
+    "buy": "6,750,000"
+  },
+  "ICE_SPRAY_WAND": {
+    "buy": "35,426,341"
+  },
+  "LIVID_DAGGER": {
+    "buy": "7,275,000"
+  },
+  "SHADOW_FURY": {
+    "buy": "52,999,999"
+  },
+  "REAPER_SCYTHE": {
+    "buy": "24,999,999"
+  },
+  "GEMSTONE_GAUNTLET": {
+    "buy": "14,900,000"
+  },
+  "DAEDALUS_AXE": {
+    "buy": "29,000,000"
+  },
+  "PHANTOM_ROD": {
+    "buy": "299,999"
+  },
+  "VOODOO_DOLL": {
+    "buy": "1,700,000"
+  },
+  "VOODOO_DOLL_WILTED": {
+    "buy": "16,000,000"
+  },
+  "FLOWER_OF_TRUTH": {
+    "buy": "2,700,000"
+  },
+  "WITHER_CLOAK": {
+    "buy": "3,500,000"
+  },
+  "NECROMANCER_SWORD": {
+    "buy": "8,800,000"
+  },
+  "GIANTS_SWORD": {
+    "buy": "165,000,000"
+  },
+  "TERMINATOR": {
+    "buy": "695,000,000"
+  },
+  "HYPERION": {
+    "buy": "820,000,000"
+  },
+  "ASTRAEA": {
+    "buy": "1,850,000,000"
+  },
+  "SCYLLA": {
+    "buy": "860,000,000"
+  },
+  "VALKYRIE": {
+    "buy": "1,200,000,000"
+  },
+  "BLADE_OF_THE_VOLCANO": {
+    "buy": "99,000"
+  },
+  "FIRE_VEIL_WAND": {
+    "buy": "16,388,888"
+  },
+  "STAFF_OF_THE_VOLCANO": {
+    "buy": "199,000"
+  },
+  "FIRE_FURY_STAFF": {
+    "buy": "5,399,000"
+  },
+  "FIRE_FREEZE_STAFF": {
+    "buy": "1,300,000"
+  },
+  "SULPHUR_BOW": {
+    "buy": "3,450,000"
+  },
+  "WAND_OF_STRENGTH": {
+    "buy": "2,000,000"
+  },
+  "RAGNAROCK_AXE": {
+    "buy": "900,000"
+  },
+  "ALCHEMISTS_STAFF": {
+    "buy": "N/A"
+  },
+  "SWORD_OF_BAD_HEALTH": {
+    "buy": "118,888"
+  },
+  "ENRAGER": {
+    "buy": "N/A"
+  },
+  "HOLLOW_WAND": {
+    "buy": "150,000"
+  },
+  "FIREDUST_DAGGER": {
+    "buy": "2,900,000"
+  },
+  "BURSTFIRE_DAGGER": {
+    "buy": "17,000,000"
+  },
+  "HEARTFIRE_DAGGER": {
+    "buy": "260,000,000"
+  },
+  "MAWDUST_DAGGER": {
+    "buy": "1,000,000"
+  },
+  "BURSTMAW_DAGGER": {
+    "buy": "10,800,000"
+  },
+  "HEARTMAW_DAGGER": {
+    "buy": "270,000,000"
+  },
+  "DARK_CLAYMORE": {
+    "buy": "334,999,900"
+  },
+  "ENCHANTED_JACK_O_LANTERN": {
+    "buy": "369,000"
+  },
+  "OBSIDIAN_CHESTPLATE": {
+    "buy": "124,000"
+  },
+  "SQUID_BOOTS": {
+    "buy": "50,000"
+  },
+  "BONZO_MASK": {
+    "buy": "1,000,000"
+  },
+  "SPIRIT_MASK": {
+    "buy": "70,000,000"
+  },
+  "WATER_HYDRA_HEAD": {
+    "buy": "2,900,000"
+  },
+  "VAMPIRE_MASK": {
+    "buy": "62,000,000"
+  },
+  "WITCH_MASK": {
+    "buy": "199,000"
+  },
+  "VAMPIRE_WITCH_MASK": {
+    "buy": "58,000,000"
+  },
+  "JERRY_STAFF": {
+    "buy": "450,000"
+  },
+  "FARMER_BOOTS": {
+    "buy": "640,000"
+  },
+  "RANCHERS_BOOTS": {
+    "buy": "4,899,999"
+  },
+  "STONK_PICKAXE": {
+    "buy": "700,000"
+  },
+  "JUNGLE_AXE": {
+    "buy": "55,000"
+  },
+  "TREECAPITATOR_AXE": {
+    "buy": "2,200,000"
+  },
+  "MITHRIL_COAT": {
+    "buy": "120,000"
+  },
+  "THORNS_BOOTS": {
+    "buy": "3,800,000"
+  },
+  "RADIANT_POWER_ORB": {
+    "buy": "100,000"
+  },
+  "MANA_FLUX_POWER_ORB": {
+    "buy": "4,000,000"
+  },
+  "OVERFLUX_POWER_ORB": {
+    "buy": "141,000,000"
+  },
+  "PLASMAFLUX_POWER_ORB": {
+    "buy": "550,000,000"
+  },
+  "WEIRD_TUBA": {
+    "buy": "2,400,000"
+  },
+  "WEIRDER_TUBA": {
+    "buy": "7,900,000"
+  },
+  "ZOMBIE_HEART": {
+    "buy": "310,000"
+  },
+  "CRYSTALLIZED_HEART": {
+    "buy": "888,000"
+  },
+  "REVIVED_HEART": {
+    "buy": "3,750,000"
+  },
+  "KRAMPUS_HELMET": {
+    "buy": "4,890,000"
+  },
+  "RIFT_NECKLACE_OUTSIDE": {
+    "buy": "N/A"
+  },
+  "SUPER_COMPACTOR_3000": {
+    "buy": "520,578"
+  },
+  "ROD_OF_THE_SEA": {
+    "buy": "11,750,000"
+  },
+  "PRECURSOR_EYE": {
+    "buy": "30,000,000"
+  },
+  "SUMMONING_RING": {
+    "buy": "11,800,000"
+  },
+  "REAPER_MASK": {
+    "buy": "16,000,000"
+  },
+  "THE_SHREDDER": {
+    "buy": "610,000"
+  },
+  "YETI_ROD": {
+    "buy": "469,000"
+  },
+  "AUGER_ROD": {
+    "buy": "18,600,000"
+  },
+  "WARDEN_HELMET": {
+    "buy": "230,000,000"
+  },
+  "CROWN_OF_GREED": {
+    "buy": "1,000,000"
+  },
+  "GYROKINETIC_WAND": {
+    "buy": "35,000,000"
+  },
+  "WAND_OF_HEALING": {
+    "buy": "30,000"
+  },
+  "WAND_OF_MENDING": {
+    "buy": "150,000"
+  },
+  "WAND_OF_RESTORATION": {
+    "buy": "1,900,000"
+  },
+  "WAND_OF_ATONEMENT": {
+    "buy": "9,000,000"
+  },
+  "MITHRIL_DRILL_1": {
+    "buy": "6,900,000"
+  },
+  "MITHRIL_DRILL_2": {
+    "buy": "21,000,000"
+  },
+  "GEMSTONE_DRILL_1": {
+    "buy": "6,400,000"
+  },
+  "GEMSTONE_DRILL_2": {
+    "buy": "10,150,000"
+  },
+  "GEMSTONE_DRILL_3": {
+    "buy": "29,000,000"
+  },
+  "GEMSTONE_DRILL_4": {
+    "buy": "46,000,000"
+  },
+  "TITANIUM_DRILL_1": {
+    "buy": "27,800,000"
+  },
+  "TITANIUM_DRILL_2": {
+    "buy": "69,000,000"
+  },
+  "TITANIUM_DRILL_3": {
+    "buy": "219,999,000"
+  },
+  "TITANIUM_DRILL_4": {
+    "buy": "380,000,000"
+  },
+  "STEEL_CHESTPLATE": {
+    "buy": "5,500,000"
+  },
+  "MENDER_CROWN": {
+    "buy": "5,500,000"
+  },
+  "WITHER_GOGGLES": {
+    "buy": "5,699,990"
+  },
+  "FLAMING_FIST": {
+    "buy": "5,000,000"
+  },
+  "IMPLOSION_BELT": {
+    "buy": "680,000"
+  },
+  "GAUNTLET_OF_CONTAGION": {
+    "buy": "11,490,000"
+  },
+  "SCOVILLE_BELT": {
+    "buy": "6,800,000"
+  },
+  "SCOURGE_CLOAK": {
+    "buy": "7,000,000"
+  },
+  "DELIRIUM_NECKLACE": {
+    "buy": "2,000,000"
+  },
+  "LAVA_SHELL_NECKLACE": {
+    "buy": "3,300,000"
+  },
+  "STARTER_LAVA_ROD": {
+    "buy": "N/A"
+  },
+  "MAGMA_ROD": {
+    "buy": "200,000"
+  },
+  "INFERNO_ROD": {
+    "buy": "52,999,999"
+  },
+  "HELLFIRE_ROD": {
+    "buy": "330,000,000"
+  },
+  "DOJO_BLACK_BELT": {
+    "buy": "N/A"
+  },
+  "SYNTHESIZER_V3": {
+    "buy": "74,800,000"
+  },
+  "ANCIENT_CLOAK": {
+    "buy": "8,700,000"
+  },
+  "THEORETICAL_HOE_WHEAT_1": {
+    "buy": "3,800,000"
+  },
+  "THEORETICAL_HOE_WHEAT_2": {
+    "buy": "9,500,000"
+  },
+  "THEORETICAL_HOE_WHEAT_3": {
+    "buy": "85,000,000"
+  },
+  "THEORETICAL_HOE_CARROT_1": {
+    "buy": "4,500,000"
+  },
+  "THEORETICAL_HOE_CARROT_2": {
+    "buy": "6,099,000"
+  },
+  "THEORETICAL_HOE_CARROT_3": {
+    "buy": "20,000,000"
+  },
+  "THEORETICAL_HOE_POTATO_1": {
+    "buy": "3,800,000"
+  },
+  "THEORETICAL_HOE_POTATO_2": {
+    "buy": "6,999,990"
+  },
+  "THEORETICAL_HOE_POTATO_3": {
+    "buy": "22,000,000"
+  },
+  "THEORETICAL_HOE_WARTS_1": {
+    "buy": "3,500,000"
+  },
+  "THEORETICAL_HOE_WARTS_2": {
+    "buy": "5,000,000"
+  },
+  "THEORETICAL_HOE_WARTS_3": {
+    "buy": "25,000,000"
+  },
+  "THEORETICAL_HOE_CANE_1": {
+    "buy": "4,000,000"
+  },
+  "THEORETICAL_HOE_CANE_2": {
+    "buy": "4,999,999"
+  },
+  "THEORETICAL_HOE_CANE_3": {
+    "buy": "16,500,000"
+  },
+  "CACTUS_KNIFE": {
+    "buy": "3,444,000"
+  },
+  "FUNGI_CUTTER": {
+    "buy": "3,200,000"
+  },
+  "COCO_CHOPPER": {
+    "buy": "3,295,000"
+  },
+  "MELON_DICER": {
+    "buy": "3,000,000"
+  },
+  "MELON_DICER_2": {
+    "buy": "7,500,000"
+  },
+  "MELON_DICER_3": {
+    "buy": "15,555,555"
+  },
+  "PUMPKIN_DICER": {
+    "buy": "3,450,000"
+  },
+  "PUMPKIN_DICER_2": {
+    "buy": "11,000,000"
+  },
+  "PUMPKIN_DICER_3": {
+    "buy": "18,000,000"
+  },
+  "SOS_FLARE": {
+    "buy": "1,169,696,969"
+  },
+  "TACTICAL_INSERTION": {
+    "buy": "N/A"
+  },
+  "ANNIHILATION_CLOAK": {
+    "buy": "N/A"
+  },
+  "BLAZETEKK_HAM_RADIO": {
+    "buy": "350,000,000"
+  },
+  "DEMONLORD_GAUNTLET": {
+    "buy": "74,999,999"
+  },
+  "FARM_SUIT_HELMET": {
+    "buy": "25"
+  },
+  "FARM_SUIT_CHESTPLATE": {
+    "buy": "40"
+  },
+  "FARM_SUIT_LEGGINGS": {
+    "buy": "32"
+  },
+  "FARM_SUIT_BOOTS": {
+    "buy": "35"
+  },
+  "MUSHROOM_HELMET": {
+    "buy": "N/A"
+  },
+  "MUSHROOM_CHESTPLATE": {
+    "buy": "N/A"
+  },
+  "MUSHROOM_LEGGINGS": {
+    "buy": "30"
+  },
+  "MUSHROOM_BOOTS": {
+    "buy": "N/A"
+  },
+  "ANGLER_HELMET": {
+    "buy": "75"
+  },
+  "ANGLER_CHESTPLATE": {
+    "buy": "250"
+  },
+  "ANGLER_LEGGINGS": {
+    "buy": "139"
+  },
+  "ANGLER_BOOTS": {
+    "buy": "69"
+  },
+  "PUMPKIN_HELMET": {
+    "buy": "N/A"
+  },
+  "PUMPKIN_CHESTPLATE": {
+    "buy": "N/A"
+  },
+  "PUMPKIN_LEGGINGS": {
+    "buy": "N/A"
+  },
+  "PUMPKIN_BOOTS": {
+    "buy": "40"
+  },
+  "CACTUS_HELMET": {
+    "buy": "15"
+  },
+  "CACTUS_CHESTPLATE": {
+    "buy": "20"
+  },
+  "CACTUS_LEGGINGS": {
+    "buy": "15"
+  },
+  "CACTUS_BOOTS": {
+    "buy": "10"
+  },
+  "LEAFLET_HELMET": {
+    "buy": "2"
+  },
+  "LEAFLET_CHESTPLATE": {
+    "buy": "4"
+  },
+  "LEAFLET_LEGGINGS": {
+    "buy": "3"
+  },
+  "LEAFLET_BOOTS": {
+    "buy": "10"
+  },
+  "LAPIS_ARMOR_HELMET": {
+    "buy": "1,500"
+  },
+  "LAPIS_ARMOR_CHESTPLATE": {
+    "buy": "35,000"
+  },
+  "LAPIS_ARMOR_LEGGINGS": {
+    "buy": "70,000"
+  },
+  "LAPIS_ARMOR_BOOTS": {
+    "buy": "24,000"
+  },
+  "MINER_OUTFIT_HELMET": {
+    "buy": "99,000"
+  },
+  "MINER_OUTFIT_CHESTPLATE": {
+    "buy": "69,999"
+  },
+  "MINER_OUTFIT_LEGGINGS": {
+    "buy": "50,000"
+  },
+  "MINER_OUTFIT_BOOTS": {
+    "buy": "99,000"
+  },
+  "GOLEM_ARMOR_HELMET": {
+    "buy": "220,000"
+  },
+  "GOLEM_ARMOR_CHESTPLATE": {
+    "buy": "300,000"
+  },
+  "GOLEM_ARMOR_LEGGINGS": {
+    "buy": "320,000"
+  },
+  "GOLEM_ARMOR_BOOTS": {
+    "buy": "299,000"
+  },
+  "TANK_MINER_HELMET": {
+    "buy": "2,016"
+  },
+  "TANK_MINER_CHESTPLATE": {
+    "buy": "4,016"
+  },
+  "TANK_MINER_LEGGINGS": {
+    "buy": "11,000"
+  },
+  "TANK_MINER_BOOTS": {
+    "buy": "9,999"
+  },
+  "ROTTEN_HELMET": {
+    "buy": "180,000"
+  },
+  "ROTTEN_CHESTPLATE": {
+    "buy": "19,000"
+  },
+  "ROTTEN_LEGGINGS": {
+    "buy": "19,000"
+  },
+  "ROTTEN_BOOTS": {
+    "buy": "7,000"
+  },
+  "HARDENED_DIAMOND_HELMET": {
+    "buy": "90,000"
+  },
+  "HARDENED_DIAMOND_CHESTPLATE": {
+    "buy": "60,000"
+  },
+  "HARDENED_DIAMOND_LEGGINGS": {
+    "buy": "85,000"
+  },
+  "HARDENED_DIAMOND_BOOTS": {
+    "buy": "50,000"
+  },
+  "MINERAL_HELMET": {
+    "buy": "122,000"
+  },
+  "MINERAL_CHESTPLATE": {
+    "buy": "200,000"
+  },
+  "MINERAL_LEGGINGS": {
+    "buy": "175,000"
+  },
+  "MINERAL_BOOTS": {
+    "buy": "100,000"
+  },
+  "FAIRY_HELMET": {
+    "buy": "98,999"
+  },
+  "FAIRY_CHESTPLATE": {
+    "buy": "50,000"
+  },
+  "FAIRY_LEGGINGS": {
+    "buy": "41,000"
+  },
+  "FAIRY_BOOTS": {
+    "buy": "4,999"
+  },
+  "FARM_ARMOR_HELMET": {
+    "buy": "150,000"
+  },
+  "FARM_ARMOR_CHESTPLATE": {
+    "buy": "270,000"
+  },
+  "FARM_ARMOR_LEGGINGS": {
+    "buy": "250,000"
+  },
+  "FARM_ARMOR_BOOTS": {
+    "buy": "500,000"
+  },
+  "MERCENARY_HELMET": {
+    "buy": "80,000"
+  },
+  "MERCENARY_CHESTPLATE": {
+    "buy": "380,000"
+  },
+  "MERCENARY_LEGGINGS": {
+    "buy": "120,000"
+  },
+  "MERCENARY_BOOTS": {
+    "buy": "200,000"
+  },
+  "STARLIGHT_HELMET": {
+    "buy": "250,000"
+  },
+  "STARLIGHT_CHESTPLATE": {
+    "buy": "100,000"
+  },
+  "STARLIGHT_LEGGINGS": {
+    "buy": "150,000"
+  },
+  "STARLIGHT_BOOTS": {
+    "buy": "125,000"
+  },
+  "ARACHNE_HELMET": {
+    "buy": "N/A"
+  },
+  "ARACHNE_CHESTPLATE": {
+    "buy": "N/A"
+  },
+  "ARACHNE_LEGGINGS": {
+    "buy": "N/A"
+  },
+  "ARACHNE_BOOTS": {
+    "buy": "N/A"
+  },
+  "BOUNCY_HELMET": {
+    "buy": "600,000"
+  },
+  "BOUNCY_CHESTPLATE": {
+    "buy": "700,000"
+  },
+  "BOUNCY_LEGGINGS": {
+    "buy": "999,998"
+  },
+  "BOUNCY_BOOTS": {
+    "buy": "1,150,000"
+  },
+  "HEAVY_HELMET": {
+    "buy": "20,000"
+  },
+  "HEAVY_CHESTPLATE": {
+    "buy": "10,000"
+  },
+  "HEAVY_LEGGINGS": {
+    "buy": "150,000"
+  },
+  "HEAVY_BOOTS": {
+    "buy": "10,000"
+  },
+  "SKELETON_GRUNT_HELMET": {
+    "buy": "20,000"
+  },
+  "SKELETON_GRUNT_CHESTPLATE": {
+    "buy": "250,000"
+  },
+  "SKELETON_GRUNT_LEGGINGS": {
+    "buy": "85,000"
+  },
+  "SKELETON_GRUNT_BOOTS": {
+    "buy": "19,999"
+  },
+  "GROWTH_HELMET": {
+    "buy": "1,200,000"
+  },
+  "GROWTH_CHESTPLATE": {
+    "buy": "1,650,000"
+  },
+  "GROWTH_LEGGINGS": {
+    "buy": "1,195,000"
+  },
+  "GROWTH_BOOTS": {
+    "buy": "999,999"
+  },
+  "SALMON_HELMET_NEW": {
+    "buy": "100,000"
+  },
+  "SALMON_CHESTPLATE_NEW": {
+    "buy": "100,000"
+  },
+  "SALMON_LEGGINGS_NEW": {
+    "buy": "499,000"
+  },
+  "SALMON_BOOTS_NEW": {
+    "buy": "198,000"
+  },
+  "SKELETON_HELMET": {
+    "buy": "900,000"
+  },
+  "GUARDIAN_CHESTPLATE": {
+    "buy": "250,000"
+  },
+  "CREEPER_LEGGINGS": {
+    "buy": "2,790,000"
+  },
+  "SPIDER_BOOTS": {
+    "buy": "899,998"
+  },
+  "TARANTULA_BOOTS": {
+    "buy": "2,490,000"
+  },
+  "SKELETON_SOLDIER_HELMET": {
+    "buy": "50,000"
+  },
+  "SKELETON_SOLDIER_CHESTPLATE": {
+    "buy": "15,000"
+  },
+  "SKELETON_SOLDIER_LEGGINGS": {
+    "buy": "12,000"
+  },
+  "SKELETON_SOLDIER_BOOTS": {
+    "buy": "20,000"
+  },
+  "ZOMBIE_SOLDIER_HELMET": {
+    "buy": "19,000"
+  },
+  "ZOMBIE_SOLDIER_CHESTPLATE": {
+    "buy": "27,999"
+  },
+  "ZOMBIE_SOLDIER_LEGGINGS": {
+    "buy": "26,949"
+  },
+  "ZOMBIE_SOLDIER_BOOTS": {
+    "buy": "25,000"
+  },
+  "GOBLIN_HELMET": {
+    "buy": "9,999"
+  },
+  "GOBLIN_CHESTPLATE": {
+    "buy": "25,000"
+  },
+  "GOBLIN_LEGGINGS": {
+    "buy": "40,000"
+  },
+  "GOBLIN_BOOTS": {
+    "buy": "15,000"
+  },
+  "HEAT_HELMET": {
+    "buy": "40,000"
+  },
+  "HEAT_CHESTPLATE": {
+    "buy": "150,000"
+  },
+  "HEAT_LEGGINGS": {
+    "buy": "200,000"
+  },
+  "HEAT_BOOTS": {
+    "buy": "100,000"
+  },
+  "FLAME_BREAKER_HELMET": {
+    "buy": "510,000"
+  },
+  "FLAME_BREAKER_CHESTPLATE": {
+    "buy": "510,000"
+  },
+  "FLAME_BREAKER_LEGGINGS": {
+    "buy": "510,000"
+  },
+  "FLAME_BREAKER_BOOTS": {
+    "buy": "600,000"
+  },
+  "ARMOR_OF_YOG_HELMET": {
+    "buy": "740,000"
+  },
+  "ARMOR_OF_YOG_CHESTPLATE": {
+    "buy": "1,099,000"
+  },
+  "ARMOR_OF_YOG_LEGGINGS": {
+    "buy": "1,000,000"
+  },
+  "ARMOR_OF_YOG_BOOTS": {
+    "buy": "465,000"
+  },
+  "END_HELMET": {
+    "buy": "N/A"
+  },
+  "END_CHESTPLATE": {
+    "buy": "N/A"
+  },
+  "END_LEGGINGS": {
+    "buy": "N/A"
+  },
+  "END_BOOTS": {
+    "buy": "N/A"
+  },
+  "HELMET_OF_THE_PACK": {
+    "buy": "1,399,999"
+  },
+  "CHESTPLATE_OF_THE_PACK": {
+    "buy": "1,500,000"
+  },
+  "LEGGINGS_OF_THE_PACK": {
+    "buy": "1,820,000"
+  },
+  "BOOTS_OF_THE_PACK": {
+    "buy": "900,000"
+  },
+  "ARMOR_OF_MAGMA_HELMET": {
+    "buy": "20,000,000"
+  },
+  "ARMOR_OF_MAGMA_CHESTPLATE": {
+    "buy": "11,799,000"
+  },
+  "ARMOR_OF_MAGMA_LEGGINGS": {
+    "buy": "9,450,000"
+  },
+  "ARMOR_OF_MAGMA_BOOTS": {
+    "buy": "10,000,000"
+  },
+  "EMERALD_ARMOR_HELMET": {
+    "buy": "1,000,000"
+  },
+  "EMERALD_ARMOR_CHESTPLATE": {
+    "buy": "1,750,000"
+  },
+  "EMERALD_ARMOR_LEGGINGS": {
+    "buy": "2,100,000"
+  },
+  "EMERALD_ARMOR_BOOTS": {
+    "buy": "1,500,000"
+  },
+  "EMBER_HELMET": {
+    "buy": "4,449,000"
+  },
+  "EMBER_CHESTPLATE": {
+    "buy": "5,500,000"
+  },
+  "EMBER_LEGGINGS": {
+    "buy": "10,000,000"
+  },
+  "EMBER_BOOTS": {
+    "buy": "3,999,999"
+  },
+  "CRYSTAL_HELMET": {
+    "buy": "400,000"
+  },
+  "CRYSTAL_CHESTPLATE": {
+    "buy": "1,298,999"
+  },
+  "CRYSTAL_LEGGINGS": {
+    "buy": "900,000"
+  },
+  "CRYSTAL_BOOTS": {
+    "buy": "300,000"
+  },
+  "SKELETON_MASTER_HELMET": {
+    "buy": "30,000"
+  },
+  "SKELETON_MASTER_CHESTPLATE": {
+    "buy": "29,128"
+  },
+  "SKELETON_MASTER_LEGGINGS": {
+    "buy": "30,478"
+  },
+  "SKELETON_MASTER_BOOTS": {
+    "buy": "27,000"
+  },
+  "ZOMBIE_CHESTPLATE": {
+    "buy": "900,000"
+  },
+  "ZOMBIE_LEGGINGS": {
+    "buy": "666,666"
+  },
+  "ZOMBIE_BOOTS": {
+    "buy": "299,000"
+  },
+  "REVENANT_CHESTPLATE": {
+    "buy": "3,499,000"
+  },
+  "REVENANT_LEGGINGS": {
+    "buy": "690,000"
+  },
+  "REVENANT_BOOTS": {
+    "buy": "450,000"
+  },
+  "REAPER_CHESTPLATE": {
+    "buy": "20,000,000"
+  },
+  "REAPER_LEGGINGS": {
+    "buy": "15,600,000"
+  },
+  "REAPER_BOOTS": {
+    "buy": "16,590,000"
+  },
+  "BLAZE_HELMET": {
+    "buy": "3,880,000"
+  },
+  "BLAZE_CHESTPLATE": {
+    "buy": "7,349,000"
+  },
+  "BLAZE_LEGGINGS": {
+    "buy": "5,480,000"
+  },
+  "BLAZE_BOOTS": {
+    "buy": "2,750,000"
+  },
+  "FROZEN_BLAZE_HELMET": {
+    "buy": "12,500,000"
+  },
+  "FROZEN_BLAZE_CHESTPLATE": {
+    "buy": "15,000,000"
+  },
+  "FROZEN_BLAZE_LEGGINGS": {
+    "buy": "15,000,000"
+  },
+  "FROZEN_BLAZE_BOOTS": {
+    "buy": "11,900,000"
+  },
+  "CHEAP_TUXEDO_CHESTPLATE": {
+    "buy": "1,500,000"
+  },
+  "CHEAP_TUXEDO_LEGGINGS": {
+    "buy": "1,400,000"
+  },
+  "CHEAP_TUXEDO_BOOTS": {
+    "buy": "800,000"
+  },
+  "FANCY_TUXEDO_CHESTPLATE": {
+    "buy": "9,000,000"
+  },
+  "FANCY_TUXEDO_LEGGINGS": {
+    "buy": "24,000,000"
+  },
+  "FANCY_TUXEDO_BOOTS": {
+    "buy": "12,500,000"
+  },
+  "ELEGANT_TUXEDO_CHESTPLATE": {
+    "buy": "35,000,000"
+  },
+  "ELEGANT_TUXEDO_LEGGINGS": {
+    "buy": "24,500,000"
+  },
+  "ELEGANT_TUXEDO_BOOTS": {
+    "buy": "15,999,996"
+  },
+  "SPEEDSTER_HELMET": {
+    "buy": "820,000"
+  },
+  "SPEEDSTER_CHESTPLATE": {
+    "buy": "900,000"
+  },
+  "SPEEDSTER_LEGGINGS": {
+    "buy": "650,000"
+  },
+  "SPEEDSTER_BOOTS": {
+    "buy": "500,000"
+  },
+  "SPONGE_HELMET": {
+    "buy": "900,000"
+  },
+  "SPONGE_CHESTPLATE": {
+    "buy": "900,000"
+  },
+  "SPONGE_LEGGINGS": {
+    "buy": "900,000"
+  },
+  "SPONGE_BOOTS": {
+    "buy": "450,000"
+  },
+  "MASTIFF_HELMET": {
+    "buy": "1,700,000"
+  },
+  "MASTIFF_CHESTPLATE": {
+    "buy": "1,800,000"
+  },
+  "MASTIFF_LEGGINGS": {
+    "buy": "2,200,000"
+  },
+  "MASTIFF_BOOTS": {
+    "buy": "1,400,000"
+  },
+  "TARANTULA_HELMET": {
+    "buy": "1,089,000"
+  },
+  "TARANTULA_CHESTPLATE": {
+    "buy": "2,500,000"
+  },
+  "TARANTULA_LEGGINGS": {
+    "buy": "1,800,000"
+  },
+  "SPOOKY_HELMET": {
+    "buy": "1,950,000"
+  },
+  "SPOOKY_CHESTPLATE": {
+    "buy": "1,200,000"
+  },
+  "SPOOKY_LEGGINGS": {
+    "buy": "1,000,000"
+  },
+  "SPOOKY_BOOTS": {
+    "buy": "1,799,000"
+  },
+  "SNOW_SUIT_HELMET": {
+    "buy": "399,000"
+  },
+  "SNOW_SUIT_CHESTPLATE": {
+    "buy": "85,000"
+  },
+  "SNOW_SUIT_LEGGINGS": {
+    "buy": "80,000"
+  },
+  "SNOW_SUIT_BOOTS": {
+    "buy": "99,000"
+  },
+  "NUTCRACKER_HELMET": {
+    "buy": "1,700,000"
+  },
+  "NUTCRACKER_CHESTPLATE": {
+    "buy": "1,900,000"
+  },
+  "NUTCRACKER_LEGGINGS": {
+    "buy": "1,600,000"
+  },
+  "NUTCRACKER_BOOTS": {
+    "buy": "1,200,000"
+  },
+  "GLACITE_HELMET": {
+    "buy": "100,000"
+  },
+  "GLACITE_CHESTPLATE": {
+    "buy": "60,000"
+  },
+  "GLACITE_LEGGINGS": {
+    "buy": "35,000"
+  },
+  "GLACITE_BOOTS": {
+    "buy": "40,000"
+  },
+  "ZOMBIE_KNIGHT_HELMET": {
+    "buy": "48,000"
+  },
+  "ZOMBIE_KNIGHT_CHESTPLATE": {
+    "buy": "270,000"
+  },
+  "ZOMBIE_KNIGHT_LEGGINGS": {
+    "buy": "49,000"
+  },
+  "ZOMBIE_KNIGHT_BOOTS": {
+    "buy": "169,999"
+  },
+  "ZOMBIE_COMMANDER_HELMET": {
+    "buy": "444,444"
+  },
+  "ZOMBIE_COMMANDER_CHESTPLATE": {
+    "buy": "150,000"
+  },
+  "ZOMBIE_COMMANDER_LEGGINGS": {
+    "buy": "333,333"
+  },
+  "ZOMBIE_COMMANDER_BOOTS": {
+    "buy": "200,000"
+  },
+  "SHARK_SCALE_HELMET": {
+    "buy": "1,299,000"
+  },
+  "SHARK_SCALE_CHESTPLATE": {
+    "buy": "1,450,000"
+  },
+  "SHARK_SCALE_LEGGINGS": {
+    "buy": "1,899,000"
+  },
+  "SHARK_SCALE_BOOTS": {
+    "buy": "1,200,000"
+  },
+  "BAT_PERSON_HELMET": {
+    "buy": "2,190,000"
+  },
+  "BAT_PERSON_CHESTPLATE": {
+    "buy": "2,000,000"
+  },
+  "BAT_PERSON_LEGGINGS": {
+    "buy": "1,400,000"
+  },
+  "BAT_PERSON_BOOTS": {
+    "buy": "1,800,000"
+  },
+  "DIVER_HELMET": {
+    "buy": "3,599,999"
+  },
+  "DIVER_CHESTPLATE": {
+    "buy": "5,000,000"
+  },
+  "DIVER_LEGGINGS": {
+    "buy": "3,400,000"
+  },
+  "DIVER_BOOTS": {
+    "buy": "3,100,000"
+  },
+  "WEREWOLF_HELMET": {
+    "buy": "790,000"
+  },
+  "WEREWOLF_CHESTPLATE": {
+    "buy": "1,100,000"
+  },
+  "WEREWOLF_LEGGINGS": {
+    "buy": "1,599,999"
+  },
+  "WEREWOLF_BOOTS": {
+    "buy": "600,000"
+  },
+  "ADAPTIVE_HELMET": {
+    "buy": "400,000"
+  },
+  "ADAPTIVE_CHESTPLATE": {
+    "buy": "2,000,000"
+  },
+  "ADAPTIVE_LEGGINGS": {
+    "buy": "700,000"
+  },
+  "ADAPTIVE_BOOTS": {
+    "buy": "195,000"
+  },
+  "YOUNG_DRAGON_HELMET": {
+    "buy": "460,000"
+  },
+  "YOUNG_DRAGON_CHESTPLATE": {
+    "buy": "550,000"
+  },
+  "YOUNG_DRAGON_LEGGINGS": {
+    "buy": "610,000"
+  },
+  "YOUNG_DRAGON_BOOTS": {
+    "buy": "499,999"
+  },
+  "OLD_DRAGON_HELMET": {
+    "buy": "400,000"
+  },
+  "OLD_DRAGON_CHESTPLATE": {
+    "buy": "400,000"
+  },
+  "OLD_DRAGON_LEGGINGS": {
+    "buy": "450,000"
+  },
+  "OLD_DRAGON_BOOTS": {
+    "buy": "570,000"
+  },
+  "WISE_DRAGON_HELMET": {
+    "buy": "700,000"
+  },
+  "WISE_DRAGON_CHESTPLATE": {
+    "buy": "1,090,000"
+  },
+  "WISE_DRAGON_LEGGINGS": {
+    "buy": "1,600,000"
+  },
+  "WISE_DRAGON_BOOTS": {
+    "buy": "1,400,000"
+  },
+  "PROTECTOR_DRAGON_HELMET": {
+    "buy": "300,000"
+  },
+  "PROTECTOR_DRAGON_CHESTPLATE": {
+    "buy": "498,000"
+  },
+  "PROTECTOR_DRAGON_LEGGINGS": {
+    "buy": "330,000"
+  },
+  "PROTECTOR_DRAGON_BOOTS": {
+    "buy": "700,000"
+  },
+  "STRONG_DRAGON_HELMET": {
+    "buy": "800,000"
+  },
+  "STRONG_DRAGON_CHESTPLATE": {
+    "buy": "998,000"
+  },
+  "STRONG_DRAGON_LEGGINGS": {
+    "buy": "1,300,000"
+  },
+  "STRONG_DRAGON_BOOTS": {
+    "buy": "900,000"
+  },
+  "UNSTABLE_DRAGON_HELMET": {
+    "buy": "350,000"
+  },
+  "UNSTABLE_DRAGON_CHESTPLATE": {
+    "buy": "590,000"
+  },
+  "UNSTABLE_DRAGON_LEGGINGS": {
+    "buy": "500,000"
+  },
+  "UNSTABLE_DRAGON_BOOTS": {
+    "buy": "400,000"
+  },
+  "HOLY_DRAGON_HELMET": {
+    "buy": "850,000"
+  },
+  "HOLY_DRAGON_CHESTPLATE": {
+    "buy": "1,050,000"
+  },
+  "HOLY_DRAGON_LEGGINGS": {
+    "buy": "1,180,000"
+  },
+  "HOLY_DRAGON_BOOTS": {
+    "buy": "545,000"
+  },
+  "SUPER_HEAVY_HELMET": {
+    "buy": "45,000"
+  },
+  "SUPER_HEAVY_CHESTPLATE": {
+    "buy": "49,000"
+  },
+  "SUPER_HEAVY_LEGGINGS": {
+    "buy": "50,000"
+  },
+  "SUPER_HEAVY_BOOTS": {
+    "buy": "50,000"
+  },
+  "SKELETOR_HELMET": {
+    "buy": "33,000"
+  },
+  "SKELETOR_CHESTPLATE": {
+    "buy": "129,999"
+  },
+  "SKELETOR_LEGGINGS": {
+    "buy": "22,000"
+  },
+  "SKELETOR_BOOTS": {
+    "buy": "28,000"
+  },
+  "SKELETON_LORD_HELMET": {
+    "buy": "650,000"
+  },
+  "SKELETON_LORD_CHESTPLATE": {
+    "buy": "448,999"
+  },
+  "SKELETON_LORD_LEGGINGS": {
+    "buy": "500,000"
+  },
+  "SKELETON_LORD_BOOTS": {
+    "buy": "499,000"
+  },
+  "ZOMBIE_LORD_HELMET": {
+    "buy": "690,000"
+  },
+  "ZOMBIE_LORD_CHESTPLATE": {
+    "buy": "249,998"
+  },
+  "ZOMBIE_LORD_LEGGINGS": {
+    "buy": "699,999"
+  },
+  "ZOMBIE_LORD_BOOTS": {
+    "buy": "1,999,999"
+  },
+  "SUPERIOR_DRAGON_HELMET": {
+    "buy": "4,950,000"
+  },
+  "SUPERIOR_DRAGON_CHESTPLATE": {
+    "buy": "8,500,000"
+  },
+  "SUPERIOR_DRAGON_LEGGINGS": {
+    "buy": "8,399,999"
+  },
+  "SUPERIOR_DRAGON_BOOTS": {
+    "buy": "4,550,000"
+  },
+  "SORROW_HELMET": {
+    "buy": "8,000,000"
+  },
+  "SORROW_CHESTPLATE": {
+    "buy": "12,222,222"
+  },
+  "SORROW_LEGGINGS": {
+    "buy": "10,000,000"
+  },
+  "SORROW_BOOTS": {
+    "buy": "5,700,000"
+  },
+  "SHADOW_ASSASSIN_CHESTPLATE": {
+    "buy": "19,999,999"
+  },
+  "SHADOW_ASSASSIN_HELMET": {
+    "buy": "1,000,000"
+  },
+  "SHADOW_ASSASSIN_BOOTS": {
+    "buy": "850,000"
+  },
+  "SHADOW_ASSASSIN_LEGGINGS": {
+    "buy": "3,900,000"
+  },
+  "FINAL_DESTINATION_CHESTPLATE": {
+    "buy": "1,300,000"
+  },
+  "FINAL_DESTINATION_HELMET": {
+    "buy": "1,000,000"
+  },
+  "FINAL_DESTINATION_BOOTS": {
+    "buy": "800,000"
+  },
+  "FINAL_DESTINATION_LEGGINGS": {
+    "buy": "1,300,000"
+  },
+  "DIVAN_CHESTPLATE": {
+    "buy": "20,990,000"
+  },
+  "DIVAN_HELMET": {
+    "buy": "20,899,999"
+  },
+  "DIVAN_BOOTS": {
+    "buy": "17,500,000"
+  },
+  "DIVAN_LEGGINGS": {
+    "buy": "21,777,777"
+  },
+  "NECROMANCER_LORD_CHESTPLATE": {
+    "buy": "9,400,000"
+  },
+  "NECROMANCER_LORD_HELMET": {
+    "buy": "199,000"
+  },
+  "NECROMANCER_LORD_BOOTS": {
+    "buy": "666,000"
+  },
+  "NECROMANCER_LORD_LEGGINGS": {
+    "buy": "3,399,000"
+  },
+  "WITHER_CHESTPLATE": {
+    "buy": "10,499,000"
+  },
+  "WITHER_HELMET": {
+    "buy": "2,880,000"
+  },
+  "WITHER_BOOTS": {
+    "buy": "1,599,999"
+  },
+  "WITHER_LEGGINGS": {
+    "buy": "5,400,000"
+  },
+  "TANK_WITHER_HELMET": {
+    "buy": "3,000,000"
+  },
+  "TANK_WITHER_CHESTPLATE": {
+    "buy": "11,000,000"
+  },
+  "TANK_WITHER_LEGGINGS": {
+    "buy": "7,000,000"
+  },
+  "TANK_WITHER_BOOTS": {
+    "buy": "1,700,000"
+  },
+  "WISE_WITHER_HELMET": {
+    "buy": "7,000,000"
+  },
+  "WISE_WITHER_CHESTPLATE": {
+    "buy": "16,990,000"
+  },
+  "WISE_WITHER_LEGGINGS": {
+    "buy": "10,900,000"
+  },
+  "WISE_WITHER_BOOTS": {
+    "buy": "5,000,000"
+  },
+  "SPEED_WITHER_HELMET": {
+    "buy": "3,550,000"
+  },
+  "SPEED_WITHER_CHESTPLATE": {
+    "buy": "13,999,998"
+  },
+  "SPEED_WITHER_LEGGINGS": {
+    "buy": "6,700,000"
+  },
+  "SPEED_WITHER_BOOTS": {
+    "buy": "1,900,000"
+  },
+  "POWER_WITHER_CHESTPLATE": {
+    "buy": "25,445,000"
+  },
+  "POWER_WITHER_HELMET": {
+    "buy": "17,300,000"
+  },
+  "POWER_WITHER_BOOTS": {
+    "buy": "15,500,000"
+  },
+  "POWER_WITHER_LEGGINGS": {
+    "buy": "19,000,000"
+  },
+  "RAMPART_CHESTPLATE": {
+    "buy": "N/A"
+  },
+  "RAMPART_HELMET": {
+    "buy": "N/A"
+  },
+  "RAMPART_BOOTS": {
+    "buy": "N/A"
+  },
+  "RAMPART_LEGGINGS": {
+    "buy": "N/A"
+  },
+  "REKINDLED_EMBER_CHESTPLATE": {
+    "buy": "N/A"
+  },
+  "REKINDLED_EMBER_HELMET": {
+    "buy": "N/A"
+  },
+  "REKINDLED_EMBER_BOOTS": {
+    "buy": "N/A"
+  },
+  "REKINDLED_EMBER_LEGGINGS": {
+    "buy": "N/A"
+  },
+  "SHIMMERING_LIGHT_HOOD": {
+    "buy": "3,250,000"
+  },
+  "SHIMMERING_LIGHT_TUNIC": {
+    "buy": "11,500,000"
+  },
+  "SHIMMERING_LIGHT_TROUSERS": {
+    "buy": "10,000,000"
+  },
+  "SHIMMERING_LIGHT_SLIPPERS": {
+    "buy": "2,800,000"
+  },
+  "BERSERKER_CHESTPLATE": {
+    "buy": "6,000,000"
+  },
+  "BERSERKER_HELMET": {
+    "buy": "4,000,000"
+  },
+  "BERSERKER_BOOTS": {
+    "buy": "3,499,999"
+  },
+  "BERSERKER_LEGGINGS": {
+    "buy": "4,999,999"
+  },
+  "TAURUS_HELMET": {
+    "buy": "280,000"
+  },
+  "FLAMING_CHESTPLATE": {
+    "buy": "120,000"
+  },
+  "MOOGMA_LEGGINGS": {
+    "buy": "90,000"
+  },
+  "SLUG_BOOTS": {
+    "buy": "66,000"
+  },
+  "THUNDER_CHESTPLATE": {
+    "buy": "500,000"
+  },
+  "THUNDER_HELMET": {
+    "buy": "699,000"
+  },
+  "THUNDER_BOOTS": {
+    "buy": "700,000"
+  },
+  "THUNDER_LEGGINGS": {
+    "buy": "949,000"
+  },
+  "MAGMA_LORD_CHESTPLATE": {
+    "buy": "27,000,000"
+  },
+  "MAGMA_LORD_HELMET": {
+    "buy": "10,500,000"
+  },
+  "MAGMA_LORD_BOOTS": {
+    "buy": "7,900,000"
+  },
+  "MAGMA_LORD_LEGGINGS": {
+    "buy": "15,000,000"
+  },
+  "BRONZE_HUNTER_HELMET": {
+    "buy": "N/A"
+  },
+  "BRONZE_HUNTER_CHESTPLATE": {
+    "buy": "N/A"
+  },
+  "BRONZE_HUNTER_LEGGINGS": {
+    "buy": "N/A"
+  },
+  "BRONZE_HUNTER_BOOTS": {
+    "buy": "N/A"
+  },
+  "SILVER_HUNTER_HELMET": {
+    "buy": "N/A"
+  },
+  "SILVER_HUNTER_CHESTPLATE": {
+    "buy": "N/A"
+  },
+  "SILVER_HUNTER_LEGGINGS": {
+    "buy": "N/A"
+  },
+  "SILVER_HUNTER_BOOTS": {
+    "buy": "N/A"
+  },
+  "GOLD_HUNTER_HELMET": {
+    "buy": "N/A"
+  },
+  "GOLD_HUNTER_CHESTPLATE": {
+    "buy": "N/A"
+  },
+  "GOLD_HUNTER_LEGGINGS": {
+    "buy": "N/A"
+  },
+  "GOLD_HUNTER_BOOTS": {
+    "buy": "N/A"
+  },
+  "DIAMOND_HUNTER_HELMET": {
+    "buy": "N/A"
+  },
+  "DIAMOND_HUNTER_CHESTPLATE": {
+    "buy": "N/A"
+  },
+  "DIAMOND_HUNTER_LEGGINGS": {
+    "buy": "N/A"
+  },
+  "DIAMOND_HUNTER_BOOTS": {
+    "buy": "N/A"
+  },
+  "CRIMSON_CHESTPLATE": {
+    "buy": "1,000,000"
+  },
+  "CRIMSON_HELMET": {
+    "buy": "349,000"
+  },
+  "CRIMSON_BOOTS": {
+    "buy": "799,000"
+  },
+  "CRIMSON_LEGGINGS": {
+    "buy": "999,000"
+  },
+  "VANQUISHED_BLAZE_BELT": {
+    "buy": "2,600,000"
+  },
+  "VANQUISHED_GHAST_CLOAK": {
+    "buy": "7,200,000"
+  },
+  "VANQUISHED_MAGMA_NECKLACE": {
+    "buy": "2,000,000"
+  },
+  "VANQUISHED_GLOWSTONE_GAUNTLET": {
+    "buy": "1,800,000"
+  },
+  "MOLTEN_NECKLACE": {
+    "buy": "2,500,000"
+  },
+  "MOLTEN_CLOAK": {
+    "buy": "1,300,000"
+  },
+  "MOLTEN_BELT": {
+    "buy": "1,690,000"
+  },
+  "MOLTEN_BRACELET": {
+    "buy": "1,450,000"
+  },
+  "AURORA_CHESTPLATE": {
+    "buy": "880,000"
+  },
+  "AURORA_HELMET": {
+    "buy": "500,000"
+  },
+  "AURORA_BOOTS": {
+    "buy": "699,000"
+  },
+  "AURORA_LEGGINGS": {
+    "buy": "480,000"
+  },
+  "FERVOR_CHESTPLATE": {
+    "buy": "50,000"
+  },
+  "FERVOR_HELMET": {
+    "buy": "50,000"
+  },
+  "FERVOR_BOOTS": {
+    "buy": "50,000"
+  },
+  "FERVOR_LEGGINGS": {
+    "buy": "50,000"
+  },
+  "TERROR_CHESTPLATE": {
+    "buy": "640,000"
+  },
+  "TERROR_HELMET": {
+    "buy": "380,000"
+  },
+  "TERROR_BOOTS": {
+    "buy": "700,000"
+  },
+  "TERROR_LEGGINGS": {
+    "buy": "350,000"
+  },
+  "HOLLOW_CHESTPLATE": {
+    "buy": "340,000"
+  },
+  "HOLLOW_HELMET": {
+    "buy": "300,000"
+  },
+  "HOLLOW_BOOTS": {
+    "buy": "300,000"
+  },
+  "HOLLOW_LEGGINGS": {
+    "buy": "300,000"
+  },
+  "MELON_HELMET": {
+    "buy": "1,699,999"
+  },
+  "MELON_CHESTPLATE": {
+    "buy": "2,000,000"
+  },
+  "MELON_LEGGINGS": {
+    "buy": "1,890,000"
+  },
+  "MELON_BOOTS": {
+    "buy": "1,100,000"
+  },
+  "CROPIE_HELMET": {
+    "buy": "3,900,000"
+  },
+  "CROPIE_CHESTPLATE": {
+    "buy": "6,800,000"
+  },
+  "CROPIE_LEGGINGS": {
+    "buy": "6,800,000"
+  },
+  "CROPIE_BOOTS": {
+    "buy": "3,695,000"
+  },
+  "SQUASH_HELMET": {
+    "buy": "7,200,000"
+  },
+  "SQUASH_CHESTPLATE": {
+    "buy": "9,900,000"
+  },
+  "SQUASH_LEGGINGS": {
+    "buy": "12,349,000"
+  },
+  "SQUASH_BOOTS": {
+    "buy": "10,000,000"
+  },
+  "FERMENTO_CHESTPLATE": {
+    "buy": "30,000,000"
+  },
+  "FERMENTO_HELMET": {
+    "buy": "19,000,000"
+  },
+  "FERMENTO_BOOTS": {
+    "buy": "19,500,000"
+  },
+  "FERMENTO_LEGGINGS": {
+    "buy": "26,000,000"
+  },
+  "RABBIT_CHESTPLATE": {
+    "buy": "999,000"
+  },
+  "RABBIT_HELMET": {
+    "buy": "949,000"
+  },
+  "RABBIT_BOOTS": {
+    "buy": "899,000"
+  },
+  "RABBIT_LEGGINGS": {
+    "buy": "999,000"
+  },
+  "VELVET_TOP_HAT": {
+    "buy": "250,000"
+  },
+  "CASHMERE_JACKET": {
+    "buy": "139,000"
+  },
+  "SATIN_TROUSERS": {
+    "buy": "99,000"
+  },
+  "OXFORD_SHOES": {
+    "buy": "100,000"
+  },
+  "LOTUS_NECKLACE": {
+    "buy": "1,200,000"
+  },
+  "LOTUS_CLOAK": {
+    "buy": "3,189,999"
+  },
+  "LOTUS_BELT": {
+    "buy": "499,999"
+  },
+  "FARM_SUIT": {
+    "buy": "132"
+  },
+  "MUSHROOM": {
+    "buy": "30"
+  },
+  "ANGLER": {
+    "buy": "533"
+  },
+  "PUMPKIN": {
+    "buy": "40"
+  },
+  "CACTUS": {
+    "buy": "60"
+  },
+  "LEAFLET": {
+    "buy": "19"
+  },
+  "LAPIS_ARMOR": {
+    "buy": "130,500"
+  },
+  "MINER_OUTFIT": {
+    "buy": "317,999"
+  },
+  "GOLEM_ARMOR": {
+    "buy": "1,139,000"
+  },
+  "TANK_MINER": {
+    "buy": "27,031"
+  },
+  "ROTTEN": {
+    "buy": "225,000"
+  },
+  "HARDENED_DIAMOND": {
+    "buy": "285,000"
+  },
+  "MINERAL": {
+    "buy": "597,000"
+  },
+  "FAIRY": {
+    "buy": "194,998"
+  },
+  "FARM_ARMOR": {
+    "buy": "1,170,000"
+  },
+  "MERCENARY": {
+    "buy": "780,000"
+  },
+  "STARLIGHT": {
+    "buy": "625,000"
+  },
+  "ARACHNE": {
+    "buy": "0"
+  },
+  "BOUNCY": {
+    "buy": "3,449,998"
+  },
+  "HEAVY": {
+    "buy": "190,000"
+  },
+  "SKELETON_GRUNT": {
+    "buy": "374,999"
+  },
+  "ARMOR_OF_GROWTH": {
+    "buy": "5,044,999"
+  },
+  "SALMON_NEW": {
+    "buy": "897,000"
+  },
+  "MONSTER_HUNTER": {
+    "buy": "4,839,998"
+  },
+  "MONSTER_RAIDER": {
+    "buy": "7,080,000"
+  },
+  "SKELETON_SOLDIER": {
+    "buy": "97,000"
+  },
+  "ZOMBIE_SOLDIER": {
+    "buy": "98,948"
+  },
+  "GOBLIN": {
+    "buy": "89,999"
+  },
+  "HEAT": {
+    "buy": "490,000"
+  },
+  "FLAME_BREAKER": {
+    "buy": "2,130,000"
+  },
+  "ARMOR_OF_YOG": {
+    "buy": "3,304,000"
+  },
+  "END": {
+    "buy": "0"
+  },
+  "ARMOR_OF_THE_PACK": {
+    "buy": "5,619,999"
+  },
+  "ARMOR_OF_MAGMA": {
+    "buy": "51,249,000"
+  },
+  "EMERALD_ARMOR": {
+    "buy": "6,350,000"
+  },
+  "EMBER": {
+    "buy": "23,948,999"
+  },
+  "CRYSTAL": {
+    "buy": "2,898,999"
+  },
+  "SKELETON_MASTER": {
+    "buy": "116,606"
+  },
+  "ZOMBIE": {
+    "buy": "1,865,666"
+  },
+  "REVENANT": {
+    "buy": "4,639,000"
+  },
+  "REAPER": {
+    "buy": "52,190,000"
+  },
+  "BLAZE_ARMOR": {
+    "buy": "19,459,000"
+  },
+  "FROZEN_BLAZE": {
+    "buy": "54,400,000"
+  },
+  "CHEAP_TUXEDO": {
+    "buy": "3,700,000"
+  },
+  "FANCY_TUXEDO": {
+    "buy": "45,500,000"
+  },
+  "ELEGANT_TUXEDO": {
+    "buy": "75,499,996"
+  },
+  "SPEEDSTER": {
+    "buy": "2,870,000"
+  },
+  "SPONGE_ARMOR": {
+    "buy": "3,150,000"
+  },
+  "MASTIFF": {
+    "buy": "7,100,000"
+  },
+  "TARANTULA": {
+    "buy": "7,879,000"
+  },
+  "SPOOKY": {
+    "buy": "5,949,000"
+  },
+  "SNOW_SUIT": {
+    "buy": "663,000"
+  },
+  "NUTCRACKER": {
+    "buy": "6,400,000"
+  },
+  "GLACITE": {
+    "buy": "235,000"
+  },
+  "ZOMBIE_KNIGHT": {
+    "buy": "536,999"
+  },
+  "ZOMBIE_COMMANDER": {
+    "buy": "1,127,777"
+  },
+  "SHARK_SCALE": {
+    "buy": "5,848,000"
+  },
+  "BAT_PERSON": {
+    "buy": "7,390,000"
+  },
+  "DIVER": {
+    "buy": "15,099,999"
+  },
+  "WEREWOLF": {
+    "buy": "4,089,999"
+  },
+  "ADAPTIVE": {
+    "buy": "3,295,000"
+  },
+  "YOUNG_DRAGON": {
+    "buy": "2,119,999"
+  },
+  "OLD_DRAGON": {
+    "buy": "1,820,000"
+  },
+  "WISE_DRAGON": {
+    "buy": "4,790,000"
+  },
+  "PROTECTOR_DRAGON": {
+    "buy": "1,828,000"
+  },
+  "STRONG_DRAGON": {
+    "buy": "3,998,000"
+  },
+  "UNSTABLE_DRAGON": {
+    "buy": "1,840,000"
+  },
+  "HOLY_DRAGON": {
+    "buy": "3,625,000"
+  },
+  "SUPER_HEAVY": {
+    "buy": "194,000"
+  },
+  "SKELETOR": {
+    "buy": "212,999"
+  },
+  "SKELETON_LORD": {
+    "buy": "2,097,999"
+  },
+  "ZOMBIE_LORD": {
+    "buy": "3,639,996"
+  },
+  "SUPERIOR_DRAGON": {
+    "buy": "26,399,999"
+  },
+  "SORROW": {
+    "buy": "35,922,222"
+  },
+  "SHADOW_ASSASSIN": {
+    "buy": "25,749,999"
+  },
+  "FINAL_DESTINATION": {
+    "buy": "4,400,000"
+  },
+  "DIVAN": {
+    "buy": "81,167,776"
+  },
+  "NECROMANCER_LORD": {
+    "buy": "13,664,000"
+  },
+  "WITHER": {
+    "buy": "20,378,999"
+  },
+  "GOLDORS_ARMOR": {
+    "buy": "22,700,000"
+  },
+  "STORMS_ARMOR": {
+    "buy": "39,890,000"
+  },
+  "MAXORS_ARMOR": {
+    "buy": "26,149,998"
+  },
+  "POWER_WITHER": {
+    "buy": "77,245,000"
+  },
+  "RAMPART": {
+    "buy": "0"
+  },
+  "REKINDLED_EMBER": {
+    "buy": "0"
+  },
+  "SHIMMERING_LIGHT": {
+    "buy": "27,550,000"
+  },
+  "BERSERKER": {
+    "buy": "18,499,998"
+  },
+  "LAVA_SEA_CREATURE": {
+    "buy": "556,000"
+  },
+  "THUNDER": {
+    "buy": "2,848,000"
+  },
+  "MAGMA_LORD": {
+    "buy": "60,400,000"
+  },
+  "BRONZE_HUNTER_ARMOR": {
+    "buy": "0"
+  },
+  "SILVER_HUNTER_ARMOR": {
+    "buy": "0"
+  },
+  "GOLD_HUNTER_ARMOR": {
+    "buy": "0"
+  },
+  "DIAMOND_HUNTER": {
+    "buy": "0"
+  },
+  "CRIMSON": {
+    "buy": "3,147,000"
+  },
+  "VANQUISHED": {
+    "buy": "13,600,000"
+  },
+  "BLAZE_BELT": {
+    "buy": "93,312"
+  },
+  "MOLTEN": {
+    "buy": "6,940,000"
+  },
+  "AURORA": {
+    "buy": "2,559,000"
+  },
+  "FERVOR": {
+    "buy": "200,000"
+  },
+  "TERROR": {
+    "buy": "2,070,000"
+  },
+  "HOLLOW": {
+    "buy": "1,240,000"
+  },
+  "MELON_ARMOR": {
+    "buy": "6,689,999"
+  },
+  "CROPIE_ARMOR": {
+    "buy": "21,195,000"
+  },
+  "SQUASH_ARMOR": {
+    "buy": "39,449,000"
+  },
+  "FERMENTO": {
+    "buy": "94,500,000"
+  },
+  "RABBIT": {
+    "buy": "3,846,000"
+  },
+  "SEYMOUR": {
+    "buy": "588,000"
+  },
+  "LOTUS": {
+    "buy": "93,312"
+  },
+  "PERFECT_TIER_12": {
+    "buy": "93,312"
+  },
+  "JERRY_CHINE_GUN": {
+    "buy": "93,312"
+  }
+}
