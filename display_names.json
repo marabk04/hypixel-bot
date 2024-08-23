@@ -136,7 +136,7 @@
   "VAMPIRE_MASK": "Vampire Mask",
   "WITCH_MASK": "Witch Mask",
   "VAMPIRE_WITCH_MASK": "Vampire Witch Mask",
-  "JERRY_CHINE_GUN": "Jerry-Chine Gun",
+  "JERRY_STAFF": "Jerry-Chine Gun",
   "FARMER_BOOTS": "Farmer Boots",
   "RANCHERS_BOOTS": "Ranchers Boots",
   "STONK_PICKAXE": "Stonk",
@@ -338,5 +338,21 @@
   "FERMENTO": "Fermento Armor",
   "RABBIT": "Rabbit Armor",
   "SEYMOUR": "Seymour's Special Armor",
-  "LOTUS": "Lotus Set"
+  "LOTUS": "Lotus Set",
+
+
+  "FELTHORN_REAPER": "Felthorn Reaper",
+  "SOULWEAVER_GLOVES": "Soulweaver Gloves",
+  "BONE_NECKLACE": "Bone Necklace",
+  "BOUQUET_OF_LIES": "Bouquet of Lies",
+  "INFINI_VACUUM_HOOVERIUS": "Infini Vacuum Hooverius",
+  "BALLOON_SNAKE": "Balloon Snake",
+  "PERFECT_TIER_13": "Perfect Tier 13",
+  "TANK_WITHER": "Tank Wither",
+  "WISE_WITHER": "Wise Wither",
+  "SPEED_WITHER": "Speed Wither",
+  "FISHERMAN": "Fisherman"
+
+
+
 }

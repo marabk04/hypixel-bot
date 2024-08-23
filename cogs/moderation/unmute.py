@@ -18,7 +18,10 @@ class unmute(commands.Cog):
 
 
     @commands.has_permissions(moderate_members= True )
-    @app_commands.command()
+    @app_commands.command(
+        name = "unmute",
+        description= "unmute a member"
+    )
     async def unmute(self, interaction: discord.Interaction, member: discord.Member = None, *, reason: str = (f"No reason provided")):
             try: 
                 if member == None:

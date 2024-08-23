@@ -15,29 +15,24 @@ import asyncio
 import aiohttp
 from settings import HYPIXEL_API_KEY
 
-def minecraftSKin(uuid):
-    skin_url = f"https://crafatar.com/renders/body/{uuid}"
+def get_player_minecraft_skin(uuid):
+    skin_url = f"https://starlightskins.lunareclipse.studio/render/ultimate/{uuid}/full"
     return skin_url
-
 
 
 with open("item_emojis.json", "r") as f:
     item_emojis = json.load(f)
 
+async def fetch_data(url):
+    async with aiohttp.ClientSession() as session:
+        async with session.get(url) as response:
+            return await response.json()
 
-def getInfo(call):
-    response = requests.get(call)
-    return response.json()
+async def username_data(username):
+    mojang_url = f"https://api.minetools.eu/uuid/{username}"
+    uuid_data = await fetch_data(mojang_url)
+    return uuid_data['id'], uuid_data['name']
 
-def UsernameToID(username):
-    mojang_url = f"https://api.mojang.com/users/profiles/minecraft/{username}"
-    uuid = getInfo(mojang_url)
-    return uuid['id']
-
-def format_username(username):
-    mojang_url = f"https://api.mojang.com/users/profiles/minecraft/{username}"
-    formatted_username = getInfo(mojang_url)
-    return formatted_username['name']
 
 def get_current(data, uuid):
     current_profile = "No profile found"
@@ -46,7 +41,7 @@ def get_current(data, uuid):
     
     if data.get("profiles") is None:
         return current_profile, current_cute_name, current_profile_data
-      
+
     for profile in data["profiles"]:
         if profile.get("selected", False):
             current_profile_data = profile.get("members", {}).get(uuid, {}).get("experience_skill_runecrafting")
@@ -178,7 +173,7 @@ def calculate_slayer_level(score):
 
 def embed_creation(profile_id, cute_name, username, user_minecraft_skin, data, uuid):
     
-    embed = discord.Embed(title=f"{username}'s Skyblock Skills On Profile {cute_name}", description="", type='rich', url = f"https://sky.shiiyu.moe/stats/{username}/{cute_name}" , color=0x00b0f4, timestamp=datetime.now())
+    embed = discord.Embed(title=f"{username}'s Skyblock Skills On Profile {cute_name}", description="", type='rich', url = f"https://sky.shiiyu.moe/stats/{username}/{cute_name}" , color=discord.Color.purple(), timestamp=datetime.now())
     embed.set_thumbnail(url=user_minecraft_skin)
     skill_names = ["Taming", "Mining", "Foraging", "Enchanting", "Carpentry", "Farming", "Combat", "Fishing", "Alchemy", "Runecrafting", "Social", "Rev Slayer", "Tara Slayer", "Sven Slayer", "Ender Slayer", "Blaze Slayer"]
 
@@ -301,29 +296,26 @@ class skill_menu(commands.Cog):
 
     @app_commands.command(name="skills",  description="Display SkyBlock profile skills ")
     async def show_initial_menu(self, interaction: discord.Interaction, username: str,):
+        uuid, username = await username_data(username)
         try:
-            username = format_username(username)
-            uuid = UsernameToID(username)
-            user_minecraft_skin = minecraftSKin(uuid)
+            user_minecraft_skin = get_player_minecraft_skin(uuid)
             url = f"https://api.hypixel.net/skyblock/profiles?key={HYPIXEL_API_KEY}&uuid={uuid}"
-            data = getInfo(url)
+            data = await fetch_data(url)
             initial_menu = ProfileMenu(username, user_minecraft_skin, data, uuid)
             current_profile, current_cute_name, current_profile_data = get_current(data, uuid)
             if current_profile == "No profile found":
-                embed = discord.Embed(title="SkyBlock Skills", description="The username you entered does not have any profiles on SkyBlock.", type='rich', color=0x00b0f4, timestamp=datetime.now())
+                embed = discord.Embed(title="SkyBlock Skills", description="The username you entered does not have any profiles on SkyBlock.", type='rich', color=discord.Color.purple(), timestamp=datetime.now())
                 embed.set_footer(text=f"{username}")
                 embed.set_thumbnail(url=user_minecraft_skin)
                 await interaction.response.send_message(embed=embed, ephemeral = True)
                 initial_menu.message = await interaction.original_response()
-
             elif current_profile_data == None:
-                embed = discord.Embed(title="SkyBlock Skills", description="The active SkyBlock profile has skill API disabled. Please select a different profile below.", type='rich', color=0x00b0f4, timestamp=datetime.now())
+                embed = discord.Embed(title="SkyBlock Skills", description="The active SkyBlock profile has skill API disabled. Please select a different profile below.", type='rich', color=discord.Color.purple(), timestamp=datetime.now())
                 embed.set_footer(text=f"{username} • {current_cute_name}")
                 embed.set_thumbnail(url=user_minecraft_skin)
                 await initial_menu.setup_buttons()
                 await interaction.response.send_message(embed=embed, view=initial_menu, ephemeral = True)
                 initial_menu.message = await interaction.original_response()
-
             else:
                 embed = embed_creation(current_profile, current_cute_name, username, user_minecraft_skin, data, uuid)
                 await initial_menu.setup_buttons(current_active_profile_id=current_profile)
@@ -331,10 +323,11 @@ class skill_menu(commands.Cog):
                 initial_menu.message = await interaction.original_response()
 
         except KeyError:
-            embed = discord.Embed(title="SkyBlock Skills", description="Please enter a valid username.", type='rich', color=0x00b0f4, timestamp=datetime.now())
+            embed = discord.Embed(title="SkyBlock Skills", description="Please enter a valid username.", type='rich', color=discord.Color.purple(), timestamp=datetime.now())
             await interaction.response.send_message(embed=embed, ephemeral = True)
-        except Exception:
+        except Exception as e:
             await interaction.response.send_message(content="There has been an error with this command. Please try again at another time.", ephemeral = True)
+            print(e)
 
 
 

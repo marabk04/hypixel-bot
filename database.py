@@ -15,7 +15,10 @@ skyblock_prices_database = collection["item"]
 welcome_channel = collection["welcome"]
 election_channel = collection["election"]
 penis_size = collection["penis"]
-
+logging_channel = collection["logging"]
+married_log = collection["married"]
+messages_log = collection["messages"]
+hypixel_api = collection["hypixelapi"]
 
 item_prices = {}
 for document in skyblock_prices_database.find():

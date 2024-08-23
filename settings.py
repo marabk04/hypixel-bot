@@ -19,6 +19,7 @@ COGS_DIR = BASE_DIR/ "cogs"
 MODERATION_DIR = COGS_DIR/ "moderation"
 FUN_DIR = COGS_DIR/ "fun"
 SKYBLOCK_DIR = COGS_DIR/ "Skyblock"
+RANDOM_DIR = COGS_DIR/ "random"
 
 LOGGING_CONFIG = {
 

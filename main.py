@@ -22,7 +22,7 @@ def is_administrator():
 
 """
 
-def permission_pass():
+def permission_pass():  /
     async def predicate(interaction: discord.Interaction):
         if interaction.user is None:
             return True
@@ -36,7 +36,7 @@ def permission_pass():
             embed = discord.Embed(title = "Command Failure",description = f"NO PERMISSIONS" , color = discord.Color.purple())
             await interaction.response.send_message(embed=embed)
     return app_commands.check(predicate)
-"""
+""" 
 
 setting = {}
 
@@ -133,30 +133,92 @@ def run():
                 await bot.load_extension(f"cogs.skyblock.{skyblock_file.name[:-3]}")  
 
 
-    @bot.command()
-    async def load(ctx, cog: str):
-        await bot.load_extension(f"cogs.{cog.lower()}")
-        print("cog loaded")
+        for random_file in settings.RANDOM_DIR.glob("*.py"):
+            if random_file.name != "__init__.py":
+                await bot.load_extension(f"cogs.random.{random_file.name[:-3]}")  
 
 
-    @bot.command()
-    async def reload_skyblock(ctx, cog: str):
-        await bot.reload_extension(f"cogs.skyblock.{cog.lower()}")
-        print("cog reloaded")
 
-    @bot.command()
-    async def reload_moderation(ctx, cog: str):
-        await bot.reload_extension(f"cogs.skyblock.{cog.lower()}")
-        print("cog reloaded")
+
+
+
+
+
+    @bot.tree.command()
+    async def load_cog_command(interaction: discord.Interaction, cog: str, file: str):
+        try:
+            await bot.load_extension(f"cogs.{cog.lower()}.{file.lower()}")
+            await interaction.response.send_message(f"cogs.{cog.lower()}.{file.lower()} was loaded")
+        except Exception as e:
+            await interaction.response.send_message(f"{e}")
+
+    @bot.tree.command()
+    async def unload_cog_command(interaction: discord.Interaction, cog: str, file: str):
+        try:
+            await bot.unload_extension(f"cogs.{cog.lower()}.{file.lower()}")
+            await interaction.response.send_message(f"cogs.{cog.lower()}.{file.lower()} was unloaded")
+        except Exception as e:
+            await interaction.response.send_message(f"{e}")
+    
+    @bot.tree.command()
+    async def reload_cog_command(interaction: discord.Interaction, cog: str, file: str):
+        try:
+            await bot.reload_extension(f"cogs.{cog.lower()}.{file.lower()}")
+            await interaction.response.send_message(f"cogs.{cog.lower()}.{file.lower()} was reloaded")
+        except Exception as e:
+            await interaction.response.send_message(f"{e}")
+    
+
+    @bot.tree.command()
+    async def load_command(interaction: discord.Interaction, cog: str, file: str):
+        try:
+            await bot.load_extension(f"cmds.{cog.lower()}")
+            await interaction.response.send_message(f"cmds.{cog.lower()} was unloaded")
+        except Exception as e:
+            await interaction.response.send_message(f"{e}")
+
+    
+ 
+
+    @bot.tree.command()
+    async def unload_command(interaction: discord.Interaction, cog: str, file: str):
+        try:
+            await bot.unload_extension(f"cmds.{cog.lower()}")
+            await interaction.response.send_message(f"cmds.{cog.lower()} was unloaded")
+        except Exception as e:
+            await interaction.response.send_message(f"{e}")
+    
+    @bot.tree.command()
+    async def reload_command(interaction: discord.Interaction, cog: str, file: str):
+        try:
+            await bot.reload_extension(f"cmds.{cog.lower()}")
+            await interaction.response.send_message(f"cmds.{cog.lower()} was unloaded")
+        except Exception as e:
+            await interaction.response.send_message(f"{e}")
         
-    @bot.command()
-    async def unload(ctx, cog: str):
-        await bot.unload_extension(f"cogs.{cog.lower()}.{cog.lower()}")
-        print("cog unloaded")
+    @bot.tree.command()
+    async def reload_database(interaction: discord.Interaction):
+        try:
+            await bot.reload_extension(f"database.py")
+            await interaction.response.send_message(f"database was reloaded")
+        except Exception as e:
+            await interaction.response.send_message(f"{e}")
+    
 
     
-    
 
+
+    @is_administrator()  
+    @bot.tree.command()
+    async def sync(interaction: discord.Interaction):
+        try:
+            if interaction.guild.id == target_guild_id:
+                synced = await bot.tree.sync()
+                await interaction.response.send_message(f"Synced {len(synced)} command(s)")
+            else:
+                print("error syncing")
+        except Exception as e:
+            await interaction.response.send_message(f"{e}")
 
 
 
@@ -164,7 +226,7 @@ def run():
 
     @is_administrator()  
     @bot.command()
-    async def sync(ctx):
+    async def sync_command(ctx):
         if ctx.guild.id == target_guild_id:
             synced = await bot.tree.sync()
             print(f"Synced {len(synced)} command(s)")

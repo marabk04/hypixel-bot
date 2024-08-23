@@ -18,12 +18,14 @@ class findban(commands.Cog):
         super().__init__()
 
     @app_commands.checks.has_permissions(ban_members = True )
-    @app_commands.command()
+    @app_commands.command(
+        name = "findban",
+        description= "Check if user is banned"
+    )
     async def findban(self, interaction: discord.Interaction, member: discord.Member = None):
         try:
             if member is None:
                 await interaction.response.send_message("Please provide a valid member.")
-                return
 
             ban_entry = await interaction.guild.fetch_ban(member)
 

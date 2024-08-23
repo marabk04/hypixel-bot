@@ -36,7 +36,7 @@ class whois_command(commands.Cog):
     @app_commands.checks.has_permissions(send_messages = True )
     @app_commands.command(
         name = "whois",
-        description= "Ban a member from the server"
+        description= "information about a member"
     )
     async def whois_command(self, interaction: discord.Interaction, member: discord.Member = None):
         if member is None:

@@ -18,6 +18,8 @@ class mute(commands.Cog):
 
     @commands.has_permissions(moderate_members = True)
     @app_commands.command(
+        name = "mute",
+        description= "Temporarily mute a member"
     )
     async def mute(self, interaction: discord.Interaction, member: discord.Member = None, *, time: str = None, reason: str = "no reason provided"):
         try:

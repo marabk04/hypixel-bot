@@ -4,167 +4,153 @@ import discord.utils
 import asyncio
 from discord import app_commands
 import requests
-
 import io
-import requests
 from datetime import datetime, timedelta
-
-API_KEY = "f1d8278e-47fd-4ee9-ab01-d78ce73087c9"
-
-def minecraftSKin(uuid):
-    skin_url = f"https://crafatar.com/renders/body/{uuid}"
-    return skin_url
-
-def getInfo(call):
-    response = requests.get(call)
-    return response.json()
-
-def UsernameToID(username):
-    mojang_url = f"https://api.mojang.com/users/profiles/minecraft/{username}"
-    uuid = getInfo(mojang_url)
-    return uuid['id']
-
-
-def format_username(username):
-    mojang_url = f"https://api.mojang.com/users/profiles/minecraft/{username}"
-    formatted_username = getInfo(mojang_url)
-    return formatted_username['name']
+import re
+import json
+from discord.ext import tasks
+from database import collection
 
 
 
-
-
-class Menu(discord.ui.View):
-    def __init__(self, username, minecraft_skin_url):
-        super().__init__()
-        self.username = username
-        self.online = False
-        self.loop_task = None
-        self.minecraft_skin_url = minecraft_skin_url
-
-    @discord.ui.button(label="Stop", style=discord.ButtonStyle.red)
-    async def menu1(self, interaction: discord.Interaction, button: discord.ui.Button):
-        if self.loop_task:
-            self.loop_task.cancel()
-            self.online = False
-        embed = discord.Embed(title="Monitor Command",
-                      description=f"*No longer tracking ``{self.username}``. Please reinitialize command to begin tracking again.*",
-                      colour=0x00b0f4,
-                      timestamp=datetime.now())
-        
-        embed.set_thumbnail(url=self.minecraft_skin_url)
-        self.clear_items()
-        await interaction.followup.send(embed=embed, view =self)
-        
-  
-
-            
-
-
-
-    @discord.ui.button(label="Start", style=discord.ButtonStyle.green)
-    async def menu2(self, interaction: discord.Interaction, button: discord.ui.Button):
-        if not self.online:
-            self.online = True
-            button.disabled = True
-            self.loop_task = asyncio.create_task(self.check_online_status(interaction))
-
-            
-        embed = discord.Embed(title="Monitor Command",
-                      description=f"*``{self.username}`` is currently afk on Skyblock*",
-                      colour=0x00b0f4,
-                      timestamp=datetime.now())
-        
-        embed.set_thumbnail(url=self.minecraft_skin_url)
-        embed.add_field(name = "Next Update", value = f"{(datetime.now() + timedelta(minutes = 10)).strftime('%I:%M%p').lstrip('0')}")
-        await interaction.response.edit_message(embed = embed, view=self)
-
-            
-            
-
-    async def check_online_status(self, interaction: discord.Interaction):
-        while self.online:
-            url = f"https://api.hypixel.net/status?key={API_KEY}&uuid={self.minecraft_skin_url}"
-            data = getInfo(url)
-            online = data.get("session", {}).get("gameType")
-            if online == "SKYBLOCK":
-                self.online = True
-            else:
-                self.online = False
-                await self.not_online(interaction, online)
-
-            embed = discord.Embed(title="Monitor Command",
-                    description=f"*``{self.username}`` is currently afk on Skyblock*",
-                    colour=0x00b0f4,
-                    timestamp=datetime.now())
-            embed.set_thumbnail(url=self.minecraft_skin_url)
-            embed.insert_field_at(index = 0, name="Next Update", value=f"{(datetime.now() + timedelta(minutes = 10)).strftime('%I:%M%p').lstrip('0')}")
-            message = await interaction.original_response()
-            await message.edit(embed=embed)
-
-            await asyncio.sleep(600)
-
-
-
-
-    async def not_online(self, interaction: discord.Interaction, online):
-        embed = discord.Embed(title="Monitor Command",
-                      description=f"*``{self.username}``   is currently not online. Now tagging: ``{interaction.user}``. Click \"**Stop**\" when returned from AFK.*",
-                      colour=0x00b0f4,
-                      timestamp=datetime.now())
-        embed.set_author(name=f"{interaction.user}")
-        embed.set_thumbnail(url=self.minecraft_skin_url)
-        message = await interaction.original_response()
-        await message.edit(embed=embed)
-
-
-
-        while not online:
-            for _ in range(1):
-                await interaction.channel.send(interaction.user.mention)
-            await asyncio.sleep(600)
-        
-
-
-
-
-class afkchecks(commands.Cog):
+class StalkingCommand(commands.Cog):
     def __init__(self, bot):
         self.bot = bot
+        self.update_channel_task = None
+        self.spam_task = None
+        self.monitor_message_id = None
+        self.HYPIXEL_API_KEY = None
+        self.get_hypixel_api_key()
 
 
-    @app_commands.command(
-            name = "monitor",
-            description = "Monitors a specified user on Skyblock"
-            )
-    async def check_if_user_is_on(self, interaction: discord.Interaction, username: str):
-        username = format_username(username)
-        minecraft_skin_url = minecraftSKin(UsernameToID(username))
-        view = Menu(username, minecraft_skin_url)
+    def get_hypixel_api_key(self):
+        hypixel_api_collection = collection["hypixelapi"]
+        fixed_id = 206512728993562624
+        hypixel_api_doc = hypixel_api_collection.find_one({"id": fixed_id})
+        if hypixel_api_doc and "API_KEY" in hypixel_api_doc:
+            self.HYPIXEL_API_KEY = hypixel_api_doc["API_KEY"]
+            print(self.HYPIXEL_API_KEY)
+        else:
+            self.HYPIXEL_API_KEY = None
+
+    def get_info(self, url):
+        response = requests.get(url)
+        return response.json()
+
+    def username_data(self, username):
+        mojang_url = f"https://api.mojang.com/users/profiles/minecraft/{username}"
+        uuid_data = self.get_info(mojang_url)
+        return uuid_data['id'], uuid_data['name']
+    
+    def get_player_minecraft_skin(self, uuid):
+        skin_url = f"https://starlightskins.lunareclipse.studio/render/ultimate/{uuid}/full"
+        return skin_url
+
+    @app_commands.command(name="stalk", description="Start stalking username.")
+    async def start_checking(self, interaction: discord.Interaction, username: str):
+        self.uuid, self.username = self.username_data(username)
+        self.player_skin = self.get_player_minecraft_skin(self.uuid)
+        self.channel_id = interaction.channel_id
+        self.user_id = interaction.user.id
+        self.update_channel_task = self.update_channel.start()
+        self.interaction_user = interaction.user.name
+        self.interaction_avatar = interaction.user.avatar.url
+        self.get_hypixel_api_key()
+        await interaction.response.send_message(f"starting key={self.HYPIXEL_API_KEY}", ephemeral=True)
+	
+        channel = self.bot.get_channel(self.channel_id)
+        embed = discord.Embed(title=f"Status: [Beginning to stalk {self.username}]", color=discord.Color.blue())
+        embed.set_thumbnail(url=self.player_skin)
+        message = await channel.send(embed=embed)
+        self.monitor_message_id = message.id
 
 
-        embed = discord.Embed(title=f"Now Monitoring ``{username}`` ",
-                      description=f"*Monitoring AFK status in the \"skyblock\" at 10-minute intervals. If the user remains AFK in skyblock , no output will be generated. In the event that the user is not present in the skyblock during a monitoring cycle, the interacting user will be subject to receiving 10 spam tags every 5 minutes.*",
-                      colour=0x00b0f4,
-                      timestamp=datetime.now())
+    @app_commands.command(name="stop", description="Stop stalking.")
+    async def stop_checking(self, interaction: discord.Interaction):
+        self.update_channel_task = self.update_channel.cancel()
+        self.spam_task = self.start_spam_loop.cancel()
+        await interaction.response.send_message(f"No longer stalking {self.username}.")
+
+
+
+    @tasks.loop(minutes=1)
+    async def update_channel(self):
+        await asyncio.sleep(3)
+        channel = self.bot.get_channel(self.channel_id)
+        value = await self.check_afk_status()
+
+
         
-        embed.add_field(name="Start Monitoring", value=f"Click on \"**Start**\" to start monitoring ``{username}``")
-        
+        if value == 1:
+            if self.monitor_message_id:
+                try:
+                    message = await channel.fetch_message(self.monitor_message_id)
+                    embed = discord.Embed(title=f"Status: [OFFLINE]", color=discord.Color.blue())
+                    embed.add_field(name="Next Update", value=f"{(datetime.now() + timedelta(minutes=1)).strftime('%I:%M %p')}")
 
-        embed.set_thumbnail(url=minecraft_skin_url)
-        await interaction.response.send_message(embed=embed, view=view, ephemeral = True)
+                    embed.add_field(name="\u200b", value="\u200b")
+                    embed.add_field(name="\u200b", value="\u200b")
+                    embed.add_field(name="Last Update", value=f"{datetime.now().strftime('%I:%M %p')}")
+                    embed.set_thumbnail(url=self.player_skin)
+                    embed.set_footer(text=f"Stalking {self.username}")
+                    await message.edit(embed=embed)
+                except discord.NotFound:
+                    embed = discord.Embed(title=f"Status: [OFFLINE]", color=discord.Color.blue())
+                    embed.add_field(name="Next Update", value=f"{(datetime.now() + timedelta(minutes=1)).strftime('%I:%M %p')}")
 
+                    embed.add_field(name="\u200b", value="\u200b")
+                    embed.add_field(name="\u200b", value="\u200b")
+                    embed.add_field(name="Last Update", value=f"{datetime.now().strftime('%I:%M %p')}")
+                    embed.set_thumbnail(url=self.player_skin)
+                    embed.set_footer(text=f"Stalking {self.username}")
+                    message = await channel.send(embed=embed)
+                    self.monitor_message_id = message.id
+            else:
+                embed = discord.Embed(title=f"Status: [OFFLINE]", color=discord.Color.blue())
+                embed.add_field(name="Next Update", value=f"{(datetime.now() + timedelta(minutes=1)).strftime('%I:%M %p')}")
 
+                embed.add_field(name="\u200b", value="\u200b")
+                embed.add_field(name="\u200b", value="\u200b")
+                embed.add_field(name="Last Update", value=f"{datetime.now().strftime('%I:%M %p')}")
+                embed.set_thumbnail(url=self.player_skin)
+                embed.set_footer(text=f"Stalking {self.username}")
+                message = await channel.send(embed=embed)
+                self.monitor_message_id = message.id
+        else:
+            embed = discord.Embed(title=f"Status: [ONLINE]", description=f"Starting to spam tag <@{self.user_id}> ", color=discord.Color.blue())
+            embed.set_thumbnail(url=self.player_skin)
+            embed.set_footer(text=f"Stalking {self.username}")
+            message = await channel.fetch_message(self.monitor_message_id)
 
-
-
-
+            await message.edit(embed=embed)
+            self.update_channel.cancel()
+            self.spam_task = self.start_spam_loop.start()
 
     
 
+    async def check_afk_status(self):
+        url = f"https://api.hypixel.net/status?key={self.HYPIXEL_API_KEY}&uuid={self.uuid}"
+        print(url)
+        data = self.get_info(url)
+        gameType = data.get("session", {}).get("gameType")
+        return 2 if gameType == "SKYBLOCK" else 1
 
 
 
+    @tasks.loop(minutes=1)
+    async def start_spam_loop(self):
+        channel = self.bot.get_channel(self.channel_id)
+        spam_message_content = f"<@{self.user_id}> \n Your account is logged on to SkyBlock! Type `/stop` to stop the notifications!"
+        for i in range(5):
+            await channel.send(content=spam_message_content)
+            await channel.send(content="https://tenor.com/view/spongebob-squarepants-spongebob-panic-chaos-fire-gif-4920941")
+
+
+
+
+    def cog_unload(self):
+        self.update_channel_task.cancel()
+        self.spam_task.cancel()
 
 async def setup(bot):
-    await bot.add_cog(afkchecks(bot))
+    await bot.add_cog(StalkingCommand(bot))

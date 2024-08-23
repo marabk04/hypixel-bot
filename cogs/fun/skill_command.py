@@ -4,7 +4,6 @@ import discord.utils
 import asyncio
 from discord import app_commands
 import requests
-from minecraft_utils import minecraftSKin
 import io
 import requests
 from datetime import datetime
@@ -14,20 +13,26 @@ import math
 from collections import OrderedDict 
 import asyncio
 import aiohttp
+from settings import HYPIXEL_API_KEY
 
-def getInfo(call):
-    response = requests.get(call)
-    return response.json()
+def get_player_minecraft_skin(uuid):
+    skin_url = f"https://starlightskins.lunareclipse.studio/skin-render/ultimate/{uuid}/full"
+    return skin_url
 
-def UsernameToID(username):
-    mojang_url = f"https://api.mojang.com/users/profiles/minecraft/{username}"
-    uuid = getInfo(mojang_url)
-    return uuid['id']
 
-def format_username(username):
-    mojang_url = f"https://api.mojang.com/users/profiles/minecraft/{username}"
-    formatted_username = getInfo(mojang_url)
-    return formatted_username['name']
+with open("item_emojis.json", "r") as f:
+    item_emojis = json.load(f)
+
+async def fetch_data(url):
+    async with aiohttp.ClientSession() as session:
+        async with session.get(url) as response:
+            return await response.json()
+
+async def username_data(username):
+    mojang_url = f"https://api.minetools.eu/uuid/{username}"
+    uuid_data = await fetch_data(mojang_url)
+    return uuid_data['id'], uuid_data['name']
+
 
 def get_current(data, uuid):
     current_profile = "No profile found"
@@ -36,7 +41,7 @@ def get_current(data, uuid):
     
     if data.get("profiles") is None:
         return current_profile, current_cute_name, current_profile_data
-      
+
     for profile in data["profiles"]:
         if profile.get("selected", False):
             current_profile_data = profile.get("members", {}).get(uuid, {}).get("experience_skill_runecrafting")
@@ -49,6 +54,8 @@ def get_current(data, uuid):
 
     return current_profile, current_cute_name, current_profile_data
 
+
+    
 
 def get_data(data, uuid):
     profiles_without_data = []
@@ -116,11 +123,12 @@ def calculate_next_level_info(score):
       break
     current_level = level
 
-  progress = 1.0 - (score_needed_for_next_level / (level_data[next_level - 1][1] - level_data[next_level - 2][1]))
 
-  bar_length = 16
+
+  progress = 1.0 - (score_needed_for_next_level / (level_data[next_level - 1][1] - level_data[next_level - 2][1]))
+  bar_length = 8
   num_blocks = int(bar_length * progress)
-  progress_bar = "█" * num_blocks + "░" * (bar_length - num_blocks)
+  progress_bar = "🟧" * num_blocks + "⬛" * (bar_length - num_blocks)
 
   return current_level, progress_bar
 
@@ -152,21 +160,24 @@ def calculate_slayer_level(score):
             break
         current_level = level
 
-    progress = 1.0 - (score_needed_for_next_level / (level_data[next_level - 1][1] - level_data[next_level - 2][1]))
-    bar_length = 10
-    num_blocks = int(bar_length * progress)
-    progress_bar = "🟥" * num_blocks + "" * (bar_length - num_blocks)
+    if current_level >= 9:
+        progress_bar = "🟧🟧🟧🟧🟧🟧🟧🟧"
+    else:
+        progress = 1.0 - (score_needed_for_next_level / (level_data[next_level - 1][1] - level_data[next_level - 2][1]))
+        bar_length = 7
+        num_blocks = int(bar_length * progress)
+        
+        progress_bar = "🟧" * num_blocks + "⬛" * (bar_length - num_blocks)
 
     return current_level, progress_bar
 
 def embed_creation(profile_id, cute_name, username, user_minecraft_skin, data, uuid):
-    embed = discord.Embed(title="SkyBlock Skills", description="", type='rich', color=0x00b0f4, timestamp=datetime.now())
-    embed.set_footer(text=f"{username} • {cute_name}")
+    
+    embed = discord.Embed(title=f"{username}'s Skyblock Skills On Profile {cute_name}", description="", type='rich', url = f"https://sky.shiiyu.moe/stats/{username}/{cute_name}" , color=discord.Color.purple(), timestamp=datetime.now())
     embed.set_thumbnail(url=user_minecraft_skin)
-
     skill_names = ["Taming", "Mining", "Foraging", "Enchanting", "Carpentry", "Farming", "Combat", "Fishing", "Alchemy", "Runecrafting", "Social", "Rev Slayer", "Tara Slayer", "Sven Slayer", "Ender Slayer", "Blaze Slayer"]
 
-    
+
     levels = []
     xp_list = get_skills(profile_id, data, uuid)
     slayer_xp = get_slayer(profile_id, data, uuid)
@@ -175,45 +186,40 @@ def embed_creation(profile_id, cute_name, username, user_minecraft_skin, data, u
     for skill_xp, skill_name in zip(xp_list, skill_names):
         if skill_xp == 0:
             level = 1
-            progress_bar = "░░░░░░░░░░░░░░░░"
+            progress_bar = "⬛⬛⬛⬛⬛⬛⬛"
         else:
             level, progress_bar = calculate_next_level_info(skill_xp)
             if skill_name == "Foraging" and level > 50:
                 level = 50
-                progress_bar = "████████████████"
-            if skill_name == "Fishing" and level > 50:
+                progress_bar = "🟧🟧🟧🟧🟧🟧🟧🟧"
+            if skill_name in ["Fishing", "Alchemy", "Taming", "Carpentry"] and level > 50:
                 level = 50
-                progress_bar = "████████████████"
-            if skill_name == "Alchemy" and level > 50:
-                level = 50
-                progress_bar = "████████████████"
-            if skill_name == "Taming" and level > 50:
-                level = 50
-                progress_bar = "████████████████"
-            if skill_name == "Carpentry" and level > 50:
-                level = 50
-                progress_bar = "████████████████"
-            if skill_name == "Social" and level >= 25:
+                progress_bar = "🟧🟧🟧🟧🟧🟧🟧🟧"
+            if skill_name in ["Mining", "Farming", "Enchanting", "Combat"] and level >= 60:
+                level = 60
+                progress_bar = "🟧🟧🟧🟧🟧🟧🟧🟧"
+            if skill_name in ["Social", "Runecrafting"] and level >= 25:
                 level = 25
-                progress_bar = "████████████████"
-            if skill_name == "Runecrafting" and level >= 25:
-                level = 25
-                progress_bar = "████████████████"
-
+                progress_bar = "🟧🟧🟧🟧🟧🟧🟧🟧"
         levels.append((level, progress_bar))
 
-    for xp in slayer_xp:
-        if xp == 0:
+    for slayer_exp, slayer_name in zip(slayer_xp, skill_names):
+        if slayer_exp == 0:
             level = 1
-            progress_bar = "░░░░░░░░░░░░░░░░"
+            progress_bar = "⬛⬛⬛⬛⬛⬛⬛⬛⬛"
         else:
-            level, progress_bar = calculate_slayer_level(xp)
+            level, progress_bar = calculate_slayer_level(slayer_exp)
+            if slayer_name in [ "Rev Slayer", "Tara Slayer", "Sven Slayer", "Ender Slayer", "Blaze Slayer"] and level >= 9:
+                level = 9
+                progress_bar = "🟧🟧🟧🟧🟧🟧🟧🟧"
         levels.append((level, progress_bar))
+
 
     for index, (level, progress_bar) in enumerate(levels):
         skill_name = skill_names[index]
+        emoji = item_emojis.get(skill_name, "<:grey_dye:1153937769022898196>")
 
-        embed.add_field(name=f"{skill_name} Level: {level}", value=f"{progress_bar}", inline=True)
+        embed.add_field(name=f" {emoji} {skill_name} Level: {level}", value=f"{progress_bar}", inline=True)
 
         if (index + 1) % 2 == 0:
             embed.add_field(name='\u200b', value='\u200b', inline=True)
@@ -232,6 +238,13 @@ class ProfileMenu(discord.ui.View):
         self.data = data
         self.uuid = uuid
         self.selected_profile = None
+        
+    async def on_timeout(self):
+        for item in self.children:
+            item.disabled = True
+        await self.message.edit(view=self)
+
+
     async def setup_buttons(self, current_active_profile_id=None):
             profiles_without_data, profiles_with_data, cute_names_without_data, cute_names_with_data = get_data(self.data, self.uuid)
             self.profiles_without_data = profiles_without_data
@@ -251,6 +264,8 @@ class ProfileMenu(discord.ui.View):
                 button.disabled = True
                 self.add_item(button)
 
+
+
     async def button_callback(self, interaction: discord.Interaction):
         custom_id = interaction.data['custom_id']
         profile_id, cute_name = custom_id.split(':')
@@ -258,6 +273,7 @@ class ProfileMenu(discord.ui.View):
         await interaction.response.defer()
         if self.selected_profile == custom_id:
                 return 
+        
         for button in self.children:
             if button.style != discord.ButtonStyle.red:
                 button.disabled = False
@@ -274,48 +290,44 @@ class ProfileMenu(discord.ui.View):
 
 
 
-
-
 class skill_menu(commands.Cog):
     def __init__(self, bot):
         self.bot = bot
 
-    @app_commands.command(
-        name="skills",
-        description="Display SkyBlock profile skills "
-    )
-
+    @app_commands.command(name="skills",  description="Display SkyBlock profile skills ")
     async def show_initial_menu(self, interaction: discord.Interaction, username: str,):
+        uuid, username = await username_data(username)
         try:
-            username = format_username(username)
-            uuid = UsernameToID(username)
-            user_minecraft_skin = minecraftSKin(uuid)
-            print(uuid)
-            url = f"https://api.hypixel.net/skyblock/profiles?key=d395341a-2e10-426f-8c51-a57ecb822c7b&uuid={uuid}"
-            data = getInfo(url)
+            user_minecraft_skin = get_player_minecraft_skin(uuid)
+            url = f"https://api.hypixel.net/skyblock/profiles?key={HYPIXEL_API_KEY}&uuid={uuid}"
+            data = await fetch_data(url)
             initial_menu = ProfileMenu(username, user_minecraft_skin, data, uuid)
             current_profile, current_cute_name, current_profile_data = get_current(data, uuid)
             if current_profile == "No profile found":
-                embed = discord.Embed(title="SkyBlock Skills", description="The username you entered does not have any profiles on SkyBlock.", type='rich', color=0x00b0f4, timestamp=datetime.now())
+                embed = discord.Embed(title="SkyBlock Skills", description="The username you entered does not have any profiles on SkyBlock.", type='rich', color=discord.Color.purple(), timestamp=datetime.now())
                 embed.set_footer(text=f"{username}")
                 embed.set_thumbnail(url=user_minecraft_skin)
                 await interaction.response.send_message(embed=embed, ephemeral = True)
-
+                initial_menu.message = await interaction.original_response()
             elif current_profile_data == None:
-                embed = discord.Embed(title="SkyBlock Skills", description="The active SkyBlock profile has skill API disabled. Please select a different profile below.", type='rich', color=0x00b0f4, timestamp=datetime.now())
+                embed = discord.Embed(title="SkyBlock Skills", description="The active SkyBlock profile has skill API disabled. Please select a different profile below.", type='rich', color=discord.Color.purple(), timestamp=datetime.now())
                 embed.set_footer(text=f"{username} • {current_cute_name}")
                 embed.set_thumbnail(url=user_minecraft_skin)
                 await initial_menu.setup_buttons()
                 await interaction.response.send_message(embed=embed, view=initial_menu, ephemeral = True)
+                initial_menu.message = await interaction.original_response()
             else:
                 embed = embed_creation(current_profile, current_cute_name, username, user_minecraft_skin, data, uuid)
                 await initial_menu.setup_buttons(current_active_profile_id=current_profile)
                 await interaction.response.send_message(embed=embed, view=initial_menu, ephemeral = True)
+                initial_menu.message = await interaction.original_response()
+
         except KeyError:
-            embed = discord.Embed(title="SkyBlock Skills", description="Please enter a valid username.", type='rich', color=0x00b0f4, timestamp=datetime.now())
+            embed = discord.Embed(title="SkyBlock Skills", description="Please enter a valid username.", type='rich', color=discord.Color.purple(), timestamp=datetime.now())
             await interaction.response.send_message(embed=embed, ephemeral = True)
-        except Exception:
+        except Exception as e:
             await interaction.response.send_message(content="There has been an error with this command. Please try again at another time.", ephemeral = True)
+            print(e)
 
 
 

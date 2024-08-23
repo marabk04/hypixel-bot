@@ -1,4 +1,3 @@
-
 import math
 import random
 import discord
@@ -14,10 +13,10 @@ class logging(commands.Cog):
         self.bot = bot
         self.settings = {}  # Initialize settings within the cog
     
-    @app_commands.checks.has_permissions(manage_channels = True )
+    @app_commands.checks.has_permissions(manage_channels=True)
     @app_commands.command(
-        name = "logs",
-        description= "set mod channel"
+        name="logs",
+        description="set mod channel"
     )
     async def set_mod_channel(self, interaction: discord.Interaction, channel: discord.TextChannel):
         self.settings[interaction.guild_id] = channel.id
@@ -28,18 +27,16 @@ class logging(commands.Cog):
     async def on_message_delete(self, message):
         if not message.guild:
             return
-        mod_channel_id = self.settings.get(message.guild.id)  # Use self.settings
-        print(mod_channel_id)
+        mod_channel_id = self.settings.get(message.guild.id) 
         if mod_channel_id:
-            mod_channel = self.bot.get_channel(mod_channel_id)  # Use self.bot
-            print(mod_channel)
+            mod_channel = self.bot.get_channel(mod_channel_id) 
             if mod_channel:
                 embed = discord.Embed(title="Deleted Message", description=message.content, color=discord.Color.purple())
                 await mod_channel.send(embed=embed)
             else:
-                print("Mod channel not found.")
+                pass
         else:
-            print("Moderation 2channel not set.")
+            pass
 
 
     @commands.Cog.listener()
@@ -47,38 +44,32 @@ class logging(commands.Cog):
         if not message_before.guild:
             return
         
-        mod_channel_id = self.settings.get(message_before.guild.id)  # Use self.settings
-        print(mod_channel_id)
+        mod_channel_id = self.settings.get(message_before.guild.id)  
         if mod_channel_id:
-            mod_channel = self.bot.get_channel(mod_channel_id)  # Use self.bot
-            print(mod_channel)
+            mod_channel = self.bot.get_channel(mod_channel_id) 
             if mod_channel:
                 embed = discord.Embed(title="Deleted Message", description=f"{message_after.content} and f{message_before}", color=discord.Color.purple())
                 await mod_channel.send(embed=embed)
             else:
-                print("Mod channel not found.")
+                pass
         else:
-            print("Moderation3 channel not set.")
-
-
+            pass
 
 
     @commands.Cog.listener()
     async def on_member_join(self, member):
         if not member.guild:
             return
-        mod_channel_id = self.settings.get(member.guild.id)  # Use self.settings
-        print(mod_channel_id)
+        mod_channel_id = self.settings.get(member.guild.id) 
         if mod_channel_id:
-            mod_channel = self.bot.get_channel(mod_channel_id)  # Use self.bot
-            print(mod_channel)
+            mod_channel = self.bot.get_channel(mod_channel_id)
             if mod_channel:
                 embed = discord.Embed(title="Deleted Message", description=f"{member} and", color=discord.Color.purple())
                 await mod_channel.send(embed=embed)
             else:
-                print("Mod channel not found.")
+                pass
         else:
-            print("Moderation5 channel not set.")
+            pass
 
 
     @commands.Cog.listener()
@@ -86,36 +77,30 @@ class logging(commands.Cog):
         if not member.guild:
             return
         mod_channel_id = self.settings.get(member.guild.id)  # Use self.settings
-        print(mod_channel_id)
         if mod_channel_id:
             mod_channel = self.bot.get_channel(mod_channel_id)  # Use self.bot
-            print(mod_channel)
             if mod_channel:
                 embed = discord.Embed(title="Deleted Message", description=f"{member} and", color=discord.Color.purple())
                 await mod_channel.send(embed=embed)
             else:
-                print("Mod channel not found.")
+                pass
         else:
-            print("Moderation6 channel not set.")
-            
+            pass
 
     @commands.Cog.listener()
     async def on_member_ban(self, member):
         if not member.guild:
             return
         mod_channel_id = self.settings.get(member.guild.id)  # Use self.settings
-        print(mod_channel_id)
         if mod_channel_id:
             mod_channel = self.bot.get_channel(mod_channel_id)  # Use self.bot
-            print(mod_channel)
             if mod_channel:
                 embed = discord.Embed(title="Deleted Message", description=f"{member} and", color=discord.Color.purple())
                 await mod_channel.send(embed=embed)
             else:
-                print("Mod channel not found.")
+                pass
         else:
-            print("Moderation7 channel not set.")
-    
+            pass
 
 
 async def setup(bot):

@@ -19,7 +19,8 @@ class unban(commands.Cog):
 
     @commands.has_permissions(ban_members = True)
     @app_commands.command(
-
+        name = "unban",
+        description= "unban a member"
     )
     async def unban(self, interaction: discord.Interaction, member: discord.User = None, *, reason: str = (f"No reason provided")):
         try:
